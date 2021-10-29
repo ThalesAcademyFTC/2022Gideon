@@ -13,13 +13,15 @@ public class Tele extends OpMode {
 
     @Override
     public void init() {
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
+
+        //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
     }
 
     @Override
     public void loop() {
 
-        //This nested if statement is used to make the robot move using the left joytsick.
+        //This nested if statement is used to make the robot move using the left joystick.
         // It works for every drive train, as long as it is set up in Anvil!
 
 
@@ -38,19 +40,10 @@ public class Tele extends OpMode {
             //If the gamepad is NOT at rest, then we want to see what we need to do.
 
 
-            //This is the code used to run a Mechanum robot.
-
-            // The left stick is used for going any direction.
-            //      Example: Pointing the left stick diagonally will make the robot go diagonally
-            // The right stick is used for turning
-
-            if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
-                robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 1);
-            } else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
-                robot.moveLeft(gamepad1.left_stick_x);
-            } else if (Math.abs(gamepad1.right_stick_x) > Math.abs(gamepad1.right_stick_y)) {
-                robot.turnLeft(gamepad1.right_stick_x);
-            } else robot.moveForward(gamepad1.left_stick_y);
+            //This is the code used to run the movement for Tank drivetrain.
+            if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
+                robot.turnRight(gamepad1.left_stick_x);
+            } else robot.moveBackward(gamepad1.left_stick_y);
         }
     }
 }
