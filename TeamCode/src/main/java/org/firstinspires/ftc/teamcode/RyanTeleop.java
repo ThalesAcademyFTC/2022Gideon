@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Tele", group="Template")
-@Disabled
+@TeleOp(name="RyanTeleop", group="Template")
+//@Disabled
 public class RyanTeleop extends OpMode {
 
     private Anvil robot;
