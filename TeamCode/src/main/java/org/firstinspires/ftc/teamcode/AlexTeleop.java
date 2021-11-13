@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="AlexTeleop", group="Template")
-@Disabled
+//Disabled
 public class AlexTeleop extends OpMode {
 
     private Anvil robot;
