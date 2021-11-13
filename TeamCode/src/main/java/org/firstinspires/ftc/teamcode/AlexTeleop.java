@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Tele", group="Template")
+@TeleOp(name="AlexTeleop", group="Template")
 @Disabled
 public class AlexTeleop extends OpMode {
 
@@ -12,35 +12,31 @@ public class AlexTeleop extends OpMode {
 
     @Override
     public void init() {
-
-        //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
         robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
     }
-
     @Override
     public void loop() {
 
-        //This nested if statement is used to make the robot move using the left joystick.
-        // It works for every drive train, as long as it is set up in Anvil!
+        double pace = 0.5;
 
 
-        //In the gap below would normally be where you would create if statements for buttons
-
-        if (gamepad1.x){
-
+        if (gamepad1.right_trigger>pace){
+            robot.moveForward(pace);
+        }
+        if(gamepad1.left_trigger>pace){
+            robot.moveBackward(pace);
+        }
+        if(gamepad1.right_bumper){
+            robot.turnRight(pace);
+        }
+        if(gamepad1.left_bumper){
+            robot.turnLeft(pace);
         }
 
-        //MOVEMENT
-        //First, we want to make the robot rest if the gamepad is not being touched
+
+
         if (gamepad1.atRest()) robot.rest();
-
-        else {
-
-            //If the gamepad is NOT at rest, then we want to see what we need to do.
-
-
-            //This is the code used to run the movement for Tank drivetrain.
-            if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
+        else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
                 robot.turnRight(gamepad1.left_stick_x);
             } else robot.moveBackward(gamepad1.left_stick_y);
         }
