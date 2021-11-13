@@ -27,13 +27,13 @@ public class EthanTeleop extends OpMode {
 
         double pace = 0.5;
 
-        if (gamepad1.y>pace){
+        if (gamepad1.y){
             robot.moveForward(pace);
-        if (gamepad1.a>pace)
+        if (gamepad1.a)
             robot.moveBackward(pace);
-        if (gamepad1.x>pace)
+        if (gamepad1.x)
             robot.moveLeft(pace);
-        if (gamepad1.b>pace)
+        if (gamepad1.b)
             robot.moveRight(pace);
 
         }
