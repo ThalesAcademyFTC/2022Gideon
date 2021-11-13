@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 @TeleOp(name="Lakelan_Tele", group="Template")
@@ -28,11 +29,22 @@ public class Lakelan_Tele extends OpMode {
         if (gamepad1.right_trigger >= 0.5){
             robot.moveForward(gamepad1.right_trigger);
         } else if (gamepad1.right_trigger < 0.5) {
-            robot.moveBackward(gamepad1.right_trigger);
+            robot.moveBackward(gamepad1.right_trigger * 2);
         } else if (gamepad1.left_trigger >= 0.5){
             robot.turnLeft(gamepad1.left_trigger);
-        } else if (gamepad1.left_trigger <= 0.5){
+        } else if (gamepad1.left_trigger < 0.5) {
             robot.turnRight(gamepad1.left_trigger);
         }
+
+     //   public void speedChange(int speed) {
+      //      if (gamepad1.y) {
+         //       if (speed == 1) {
+         //           speed = 2;
+         //       } else {
+         //           speed = 1;
+         //       }
+         //   }
+       // }
+
     }
 }

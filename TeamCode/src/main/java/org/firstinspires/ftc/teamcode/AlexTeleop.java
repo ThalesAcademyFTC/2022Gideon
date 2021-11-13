@@ -21,24 +21,20 @@ public class AlexTeleop extends OpMode {
 
 
         if (gamepad1.right_trigger>pace){
-            robot.moveForward(pace);
+            robot.moveForward(1);
         }
         if(gamepad1.left_trigger>pace){
-            robot.moveBackward(pace);
+            robot.moveBackward(1);
         }
         if(gamepad1.right_bumper){
-            robot.turnRight(pace);
+            robot.turnRight(1);
         }
         if(gamepad1.left_bumper){
-            robot.turnLeft(pace);
+            robot.turnLeft(1);
         }
 
 
 
         if (gamepad1.atRest()) robot.rest();
-        else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
-                robot.turnRight(gamepad1.left_stick_x);
-            } else robot.moveBackward(gamepad1.left_stick_y);
-        }
     }
 }
