@@ -58,6 +58,9 @@ public class AlexTeleop extends OpMode {
 }
 }
 }
+        if(gamepad1.left_trigger>pace){
+
+        }
 
 
         //DIAMOND
