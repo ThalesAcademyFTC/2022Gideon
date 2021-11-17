@@ -18,20 +18,62 @@ public class AlexTeleop extends OpMode {
     public void loop() {
 
         double pace = 0.5;
+        int speed = 1;
+
+        if (gamepad1.right_stick_y>pace){
+            robot.moveForward(1);
+        }
+        if(gamepad1.right_stick_y<-pace){
+            robot.moveBackward(1);
+        }
+        if(gamepad1.left_stick_x>pace){
+            robot.moveRight(1);
+        }
+        if(gamepad1.left_stick_x<-pace){
+            robot.moveLeft(1);
+        }
+        if(gamepad1.right_stick_x>pace){
+            robot.turnRight(1);
+        }
+        if(gamepad1.right_stick_x<-pace){
+            robot.turnLeft(1);
+        }
+        if(gamepad1.y){
+            if(speed == 1) {
+                speed = 2;
+        }
+        if(gamepad1.y){
+            if(speed == 2){
+                speed = 2;
+        }
+        if(gamepad1.a){
+            if(speed == 2){
+                speed = 1;
+            }
+        if(gamepad1.a){
+            if(speed == 1) {
+                speed = 1;
+}
+}
+}
+}
+}
 
 
-        if (gamepad1.right_trigger>pace){
-            robot.moveForward(pace);
-        }
-        if(gamepad1.left_trigger>pace){
-            robot.moveBackward(pace);
-        }
-        if(gamepad1.right_bumper){
-            robot.turnRight(pace);
-        }
-        if(gamepad1.left_bumper){
-            robot.turnLeft(pace);
-        }
+        //DIAMOND
+//                 /\
+//                //\\
+//               ///\\\
+//              ////\\\\
+//             /////\\\\\
+//            //////\\\\\\
+//            \\\\\\//////
+//             \\\\\/////
+//              \\\\////
+//               \\\///
+//                \\//
+//                 \/
+        //DIAMOND
 
 
 
