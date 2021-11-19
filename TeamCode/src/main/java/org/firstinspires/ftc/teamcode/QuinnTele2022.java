@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="QuinnTele2022", group="Template")
-@Disabled
+//@Disabled
 public class QuinnTele2022 extends OpMode {
 
     private Anvil robot;

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -37,30 +38,21 @@ public class NataliaCode extends OpMode {
 
         //Code for the buttons (idk if its right):
         //top
-        if (gamepad1.dpad_up) {
-            robot.moveForward(pace);
-        }
-        //bottom
-        if (gamepad1.dpad_down) {
-            robot.moveBackward(pace);
-        }
-        //left
-        if (gamepad1.dpad_left) {
-            robot.moveLeft(pace);
-        }
-        //right
-        if (gamepad1.dpad_right) {
-            robot.moveRight(pace);
-        }
-        //top and left
         if (gamepad1.dpad_up&&gamepad1.dpad_left) {
             robot.turnLeft(pace);
         }
         //top and right
-        if (gamepad1.dpad_up&&gamepad1.dpad_right){
+       else if (gamepad1.dpad_up&&gamepad1.dpad_right){
             robot.turnRight(pace);
-
-
-            }
+        } else if (gamepad1.dpad_up) {
+            robot.moveForward(pace);
+        } else if (gamepad1.dpad_down) {
+            robot.moveBackward(pace);
+        } else if (gamepad1.dpad_left) {
+            robot.moveLeft(pace);
+        } else if (gamepad1.dpad_right) {
+            robot.moveRight(pace);
+        }
+        //top and left
         }
     }
