@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-@TeleOp(name="Lakelan_Tele", group="Template")
+@TeleOp(name="Lakelan_Tele2022", group="Template")
 //@Disabled
 public class Lakelan_Tele2022 extends OpMode {
 
