@@ -17,7 +17,6 @@ public class Lakelan_Tele2022 extends OpMode {
         robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
     }
     int speed = 1;
-
     @Override
     public void loop() {
         //MOVEMENT
@@ -37,7 +36,9 @@ public class Lakelan_Tele2022 extends OpMode {
             robot.moveForward(gamepad1.right_trigger);
         } else if (gamepad1.right_trigger < 0.5 * speed) {
             robot.moveBackward(gamepad1.right_trigger * 2 * speed);
-        } else if (gamepad1.left_trigger >= 0.5){
+        }
+
+        if (gamepad1.left_trigger >= 0.5){
             robot.turnLeft(gamepad1.left_trigger * speed);
         } else if (gamepad1.left_trigger < 0.5){
             robot.turnRight(gamepad1.left_trigger * 2 * speed);
