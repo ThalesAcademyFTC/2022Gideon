@@ -58,25 +58,29 @@ public class AlexTeleop extends OpMode {
 }
 }
 }
+        if(gamepad1.right_trigger>pace){
+            robot.moveForward(4.20);
+        }
         if(gamepad1.left_trigger>pace){
-
+            robot.moveBackward(4.20);
         }
 
 
-        //DIAMOND
-//                 /\
-//                //\\
-//               ///\\\
-//              ////\\\\
-//             /////\\\\\
-//            //////\\\\\\
-//            \\\\\\//////
-//             \\\\\/////
-//              \\\\////
-//               \\\///
-//                \\//
-//                 \/
-        //DIAMOND
+
+        //DIAMOND   /\
+//                 //\\
+//                ///\\\
+//               ////\\\\
+//              /////\\\\\
+//             //////\\\\\\
+//            //////pp\\\\\\
+//            \\\\\\pp//////
+//             \\\\\\//////
+//              \\\\\/////
+//               \\\\////
+//                \\\///
+//                 \\//
+        //DIAMOND   \/
 
 
 
