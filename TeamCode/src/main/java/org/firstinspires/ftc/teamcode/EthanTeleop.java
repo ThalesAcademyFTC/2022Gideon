@@ -25,9 +25,13 @@ public class EthanTeleop extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
+        if (gamepad1.atRest()) robot.rest();
+
+        else {
+
         double pace = 0.5;
 
-        if (gamepad1.y){
+        if (gamepad1.y)
             robot.moveForward(pace);
         if (gamepad1.a)
             robot.moveBackward(pace);
