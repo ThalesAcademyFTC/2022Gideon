@@ -25,13 +25,13 @@ public class QuinnTele2022 extends OpMode {
         if(gamepad1.left_stick_y > 0.5) {
             robot.moveForward(pace);
         }
-        else if(gamepad1.left_stick_y < 0.5) {
+        else if(gamepad1.left_stick_y < 0) {
             robot.moveBackward(pace);
         }
         else if(gamepad1.left_stick_x > 0.5) {
             robot.turnRight(pace);
         }
-        else if(gamepad1.left_stick_x < 0.5) {
+        else if(gamepad1.left_stick_x < 0) {
             robot.turnLeft(pace);
         }
         //This nested if statement is used to make the robot move using the left joystick.
