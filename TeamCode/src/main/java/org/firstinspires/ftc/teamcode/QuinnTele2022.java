@@ -20,16 +20,16 @@ public class QuinnTele2022 extends OpMode {
     @Override
     public void loop() {
 
-        if(gamepad1.left_stick_y > 0) {
+        if(gamepad1.left_stick_y > 0.5) {
             robot.moveForward(gamepad1.left_stick_y);
         }
-        if(gamepad1.left_stick_y < 0) {
+        else if(gamepad1.left_stick_y < -0.5) {
             robot.moveBackward(gamepad1.left_stick_y);
         }
-        if(gamepad1.left_stick_x > 0) {
+        else if(gamepad1.left_stick_x > 0.5) {
             robot.turnRight(gamepad1.left_stick_x);
         }
-        if(gamepad1.left_stick_x < 0) {
+        else if(gamepad1.left_stick_x < -0.5) {
             robot.turnLeft(gamepad1.left_stick_x);
         }
         //This nested if statement is used to make the robot move using the left joystick.
