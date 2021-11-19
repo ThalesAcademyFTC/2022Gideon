@@ -59,10 +59,10 @@ public class AlexTeleop extends OpMode {
 }
 }
         if (gamepad2.left_trigger>0.5){
-            robot.servo1.getPosition();
+            robot.servo1.setPosition(1);
         }
         if (gamepad2.right_trigger>0.5){
-            robot.servo1.getPosition();
+            robot.servo1.setPosition(25);
         }
 
         if (gamepad1.atRest()) robot.rest();
