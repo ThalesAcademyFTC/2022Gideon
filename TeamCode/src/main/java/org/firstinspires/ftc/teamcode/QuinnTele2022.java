@@ -45,10 +45,10 @@ public class QuinnTele2022 extends OpMode {
             //If the gamepad is NOT at rest, then we want to see what we need to do.
 
 
-            //This is the code used to run the movement for Tank drivetrain.
+            /*This is the code used to run the movement for Tank drivetrain.
             if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
                 robot.turnRight(gamepad1.left_stick_x);
-            } else robot.moveBackward(gamepad1.left_stick_y);
+            } else robot.moveBackward(gamepad1.left_stick_y); */
         }
     }
 }
