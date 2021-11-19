@@ -20,17 +20,19 @@ public class QuinnTele2022 extends OpMode {
     @Override
     public void loop() {
 
+        double pace = 0.5;
+
         if(gamepad1.left_stick_y > 0.5) {
-            robot.moveForward(gamepad1.left_stick_y);
+            robot.moveForward(pace);
         }
         else if(gamepad1.left_stick_y < 0.5) {
-            robot.moveBackward(gamepad1.left_stick_y);
+            robot.moveBackward(pace);
         }
         else if(gamepad1.left_stick_x > 0.5) {
-            robot.turnRight(gamepad1.left_stick_x);
+            robot.turnRight(pace);
         }
         else if(gamepad1.left_stick_x < 0.5) {
-            robot.turnLeft(gamepad1.left_stick_x);
+            robot.turnLeft(pace);
         }
         //This nested if statement is used to make the robot move using the left joystick.
         // It works for every drive train, as long as it is set up in Anvil!
