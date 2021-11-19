@@ -58,31 +58,12 @@ public class AlexTeleop extends OpMode {
 }
 }
 }
-        if(gamepad1.right_trigger>pace){
-            robot.moveForward(4.20);
+        if (gamepad2.left_trigger>0.5){
+            robot.servo1.getPosition();
         }
-        if(gamepad1.left_trigger>pace){
-            robot.moveBackward(4.20);
+        if (gamepad2.right_trigger>0.5){
+            robot.servo1.getPosition();
         }
-
-
-
-        //DIAMOND   /\
-//                 //\\
-//                ///\\\
-//               ////\\\\
-//              /////\\\\\
-//             //////\\\\\\
-//            //////pp\\\\\\
-//            \\\\\\pp//////
-//             \\\\\\//////
-//              \\\\\/////
-//               \\\\////
-//                \\\///
-//                 \\//
-        //DIAMOND   \/
-
-
 
         if (gamepad1.atRest()) robot.rest();
         else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
@@ -91,3 +72,24 @@ public class AlexTeleop extends OpMode {
         }
     }
 }
+
+//ඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞ
+
+//                        /\
+//                       /ඞ\
+//          //DIAMOND   //ඞ\\
+//                     ///ඞ\\\
+//                    ////ඞ\\\\
+//                   /////ඞ\\\\\
+//                  //////ඞ\\\\\\
+//                 ///////ඞ\\\\\\\
+//                ////////ඞ\\\\\\\\
+//                \\\\\\\\ඞ////////
+//                 \\\\\\\ඞ///////
+//                  \\\\\\ඞ//////
+//                   \\\\\ඞ/////
+//                    \\\\ඞ////
+//                     \\\ඞ///
+//          //DIAMOND   \\ඞ//
+//                       \ඞ/
+//                        \/
