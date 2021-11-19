@@ -23,13 +23,13 @@ public class QuinnTele2022 extends OpMode {
         if(gamepad1.left_stick_y > 0.5) {
             robot.moveForward(gamepad1.left_stick_y);
         }
-        else if(gamepad1.left_stick_y < -0.5) {
+        else if(gamepad1.left_stick_y < 0.5) {
             robot.moveBackward(gamepad1.left_stick_y);
         }
         else if(gamepad1.left_stick_x > 0.5) {
             robot.turnRight(gamepad1.left_stick_x);
         }
-        else if(gamepad1.left_stick_x < -0.5) {
+        else if(gamepad1.left_stick_x < 0.5) {
             robot.turnLeft(gamepad1.left_stick_x);
         }
         //This nested if statement is used to make the robot move using the left joystick.
@@ -40,7 +40,7 @@ public class QuinnTele2022 extends OpMode {
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest()) robot.rest();
 
-        else {
+
 
             //If the gamepad is NOT at rest, then we want to see what we need to do.
 
@@ -51,4 +51,3 @@ public class QuinnTele2022 extends OpMode {
             } else robot.moveBackward(gamepad1.left_stick_y); */
         }
     }
-}
