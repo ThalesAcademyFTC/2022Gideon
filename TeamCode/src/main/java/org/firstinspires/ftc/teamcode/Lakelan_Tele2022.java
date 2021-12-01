@@ -2,7 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @TeleOp(name="Lakelan_Tele2022", group="Template")
 //@Disabled
@@ -19,6 +21,8 @@ public class Lakelan_Tele2022 extends OpMode {
     int speed = 1;
     @Override
     public void loop() {
+        DcMotor motor1, motor2, motor3, motor4;
+
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest()) robot.rest();
