@@ -147,3 +147,39 @@ int speed = 1;
 //     XXXX                    XXXX
 //   XXXX                        XXXX
 // XXXX                            XXXX
+
+
+//               A
+//              AAA
+//             AAAAA
+//            AAAAAAA
+//           AAAA AAAA
+//          AAAA   AAAA
+//         AAAAAAAAAAAAA
+//        AAAAAAAAAAAAAAA
+//       AAAA         AAAA
+//      AAAA           AAAA
+//     AAAA             AAAA
+//    AAAA               AAAA
+//   AAAA                 AAAA
+//  AAAA                   AAAA
+// AAAA                     AAAA
+
+
+// NNNNNNNNN                NNNN
+// NNNN NNNNN               NNNN
+// NNNN  NNNNN              NNNN
+// NNNN   NNNNN             NNNN
+// NNNN    NNNNN            NNNN
+// NNNN     NNNNN           NNNN
+// NNNN      NNNNN          NNNN
+// NNNN       NNNNN         NNNN
+// NNNN        NNNNN        NNNN
+// NNNN         NNNNN       NNNN
+// NNNN          NNNNN      NNNN
+// NNNN           NNNNN     NNNN
+// NNNN            NNNNN    NNNN
+// NNNN             NNNNN   NNNN
+// NNNN              NNNNN  NNNN
+// NNNN               NNNNN NNNN
+// NNNN                NNNNNNNNN
