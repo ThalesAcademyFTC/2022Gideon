@@ -38,11 +38,11 @@ public class QuinnTele2022 extends OpMode {
         //This nested if statement is used to make the robot move using the left joystick.
         // It works for every drive train, as long as it is set up in Anvil!
 
-        robot.armMotor.setPower(1);
-
         if (gamepad2.dpad_up) {
+            robot.armMotor.setPower(1);
             robot.moveForward(pace);
-        }
+        } else robot.armMotor.setPower(0);
+
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest()) robot.rest();
