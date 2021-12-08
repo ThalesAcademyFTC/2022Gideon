@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name="QuinnTele2022", group="Template")
 //@Disabled
@@ -14,7 +15,7 @@ public class QuinnTele2022 extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
 
     @Override
@@ -37,7 +38,11 @@ public class QuinnTele2022 extends OpMode {
         //This nested if statement is used to make the robot move using the left joystick.
         // It works for every drive train, as long as it is set up in Anvil!
 
+        robot.armMotor.setPower(1);
 
+        if (gamepad2.dpad_up) {
+            robot.moveForward(pace);
+        }
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest()) robot.rest();
