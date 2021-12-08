@@ -29,6 +29,7 @@ public class Lakelan_Tele2022 extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
+        //Speed change
         if (gamepad1.y) {
             if (speed == 1) {
                 speed = 2;
@@ -36,12 +37,15 @@ public class Lakelan_Tele2022 extends OpMode {
                 speed = 1;
             }
         }
+
+        //Forward and backward movement using right trigger
         if (gamepad1.right_trigger >= 0.5){
-            robot.moveForward(gamepad1.right_trigger);
+            robot.moveForward(gamepad1.right_trigger * speed);
         } else if (gamepad1.right_trigger < 0.5 * speed) {
             robot.moveBackward(gamepad1.right_trigger * 2 * speed);
         }
 
+        //Turning using left trigger
         if (gamepad1.left_trigger >= 0.5){
             robot.turnLeft(gamepad1.left_trigger * speed);
         } else if (gamepad1.left_trigger < 0.5){

@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -21,7 +22,6 @@ public class NataliaCode extends OpMode {
 
         //MOVEMENT
         //First, we want to make the robot rest of the gamepad is not being touched
-        if (gamepad1.atRest()) robot.rest();
 
         //If the gamepad is NOT at rest, then we want to see what we need to do.
 
@@ -33,34 +33,11 @@ public class NataliaCode extends OpMode {
         //If the top and right buttons are being pressed at the same time, then it turns right but clockwise, still facing forwards.
 
 
-        double pace = 1;
+            if (gamepad1.atRest()) robot.rest();
+            //for moving the carosuel thing clockwards
 
-        //Code for the buttons (idk if its right):
-        //top
-        if (gamepad1.dpad_up) {
-            robot.moveForward(pace);
-        }
-        //bottom
-        if (gamepad1.dpad_down) {
-            robot.moveBackward(pace);
-        }
-        //left
-        if (gamepad1.dpad_left) {
-            robot.moveLeft(pace);
-        }
-        //right
-        if (gamepad1.dpad_right) {
-            robot.moveRight(pace);
-        }
-        //top and left
-        if (gamepad1.dpad_up&&gamepad1.dpad_left) {
-            robot.turnLeft(pace);
-        }
-        //top and right
-        if (gamepad1.dpad_up&&gamepad1.dpad_right){
-            robot.turnRight(pace);
+            double pace = 0.5;
 
+            if (gamepad2.right_bumper);
+            robot.motor2.setPower(1);}}
 
-            }
-        }
-    }
