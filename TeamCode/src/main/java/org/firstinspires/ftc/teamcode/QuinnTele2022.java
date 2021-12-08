@@ -22,13 +22,13 @@ public class QuinnTele2022 extends OpMode {
 
         double pace = 0.5;
 
-        if(gamepad1.left_stick_y > 0.5) {
+        if(gamepad1.left_stick_y > 0.1) {
             robot.moveForward(pace);
         }
         else if(gamepad1.left_stick_y < 0) {
             robot.moveBackward(pace);
         }
-        else if(gamepad1.left_stick_x > 0.5) {
+        else if(gamepad1.left_stick_x > 0.1) {
             robot.turnRight(pace);
         }
         else if(gamepad1.left_stick_x < 0) {
