@@ -31,7 +31,7 @@ robot.moveBackwardFT(1000,0.5);
 robot.moveLeftFT(1000);
 
 
-        //Inside of the while statement below is any code that you want to run in loop during autonomous.
+        // Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
 
 
