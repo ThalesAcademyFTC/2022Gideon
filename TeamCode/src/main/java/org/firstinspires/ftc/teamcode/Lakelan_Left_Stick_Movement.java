@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name="Lakelan_Tele2022", group="Template")
+@TeleOp(name="Lakelan_Left_Stick_Movement", group="Template")
 //@Disabled
 public class Lakelan_Left_Stick_Movement extends OpMode {
 
@@ -19,13 +19,13 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+        robot = new Anvil_With_Back_Wheel_Speed(hardwareMap, Anvil_With_Back_Wheel_Speed.Drivetrain.MECHANUM, telemetry);
     }
     int speed = 1;
     @Override
-    public void loop(SpeedToggle) {
+    public void loop(SpeedToggle mode) {
 
-
+        mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
         DcMotor motor1, motor2, motor3, motor4;
 
         //MOVEMENT
@@ -35,36 +35,48 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         //In the gap below would normally be where you would create if statements for buttons
 
         if (gamepad1.y) {
-            if (speed == 1) {
-                speed = 2;
+            if (mode == Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward) {
+                mode = SpeedToggle.Faster_Forward;
             } else {
-                speed = 1;
+                mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
             }
         }
-        switch (SpeedToggle){
+        switch (mode){
             case Normal_Forward:
                 if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x);
-                }
-
-                if (gamepad1.left_stick_y >= 0.2){
-                    robot.moveForward(gamepad1.left_trigger);
+                } else if (gamepad1.left_stick_y >= 0.2){
+                    robot.moveForward(gamepad1.left_stick_y);
                 } else if (gamepad1.left_stick_y < -0.2){
-                    robot.moveBackward(-gamepad1.left_trigger);
+                    robot.moveBackward(-gamepad1.left_stick_y);
+                } else if (gamepad1.left_stick_x > 0.4 && gamepad1.left_stick_y > 0.4) {
+                    robot.moveDiagonal(2, 2, 0.5);
+                } else if (gamepad1.left_stick_x < - 0.4 && gamepad1.left_stick_y > 0.4) {
+                    robot.moveDiagonal(2, 2, 0.5);
+                } else if (gamepad1.left_stick_x < - 0.4 && gamepad1.left_stick_y < - 0.4) {
+                    robot.moveDiagonal(2, 2, 0.5);
+                } else if (gamepad1.left_stick_x > 0.4 && gamepad1.left_stick_y < - 0.4) {
+                    robot.moveDiagonal(2, 2, 0.5);
                 }
             case Faster_Forward:
                 if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x);
-                }
-
-                if (gamepad1.left_stick_y >= 0.2){
-                    robot.moveForwardFaster(gamepad1.left_trigger);
+                } else if (gamepad1.left_stick_y >= 0.2){
+                    robot.moveForwardFaster(gamepad1.left_stick_y);
                 } else if (gamepad1.left_stick_y < -0.2){
-                    robot.moveBackward(-gamepad1.left_trigger);
+                    robot.moveBackward(-gamepad1.left_stick_y);
+                } else if (gamepad1.left_stick_x > 0.4 && gamepad1.left_stick_y > 0.4) {
+                    robot.moveDiagonal(2, 2, 1);
+                } else if (gamepad1.left_stick_x < - 0.4 && gamepad1.left_stick_y > 0.4) {
+                    robot.moveDiagonal(2, 2, 1);
+                } else if (gamepad1.left_stick_x < - 0.4 && gamepad1.left_stick_y < - 0.4) {
+                    robot.moveDiagonal(2, 2, 1);
+                } else if (gamepad1.left_stick_x > 0.4 && gamepad1.left_stick_y < - 0.4) {
+                    robot.moveDiagonal(2, 2, 1);
                 }
         }
 
