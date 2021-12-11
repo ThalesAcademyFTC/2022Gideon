@@ -21,12 +21,10 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
         robot = new Anvil_With_Back_Wheel_Speed(hardwareMap, Anvil_With_Back_Wheel_Speed.Drivetrain.MECHANUM, telemetry);
     }
-    int speed = 1;
     @Override
-    public void loop(SpeedToggle mode) {
+    private void loop(SpeedToggle mode) {
 
         mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
-        DcMotor motor1, motor2, motor3, motor4;
 
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
