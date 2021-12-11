@@ -1,0 +1,117 @@
+Index: TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.firstinspires.ftc.teamcode;\r\n\r\nimport com.qualcomm.robotcore.eventloop.opmode.Disabled;\r\nimport com.qualcomm.robotcore.eventloop.opmode.OpMode;\r\nimport com.qualcomm.robotcore.eventloop.opmode.TeleOp;\r\n\r\n@TeleOp(name=\"AlexTeleop\", group=\"Template\")\r\n//Disabled\r\npublic class AlexTeleop extends OpMode {\r\n\r\n    private Anvil robot;\r\n\r\n    @Override\r\n    public void init() {\r\n        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);\r\n    }\r\n    @Override\r\n    public void loop() {\r\n\r\n        double pace = 0.5;\r\n        int speed = 1;\r\n\r\n        if (gamepad1.right_stick_y>pace){\r\n            robot.moveForward(1);\r\n        }\r\n        if(gamepad1.right_stick_y<-pace){\r\n            robot.moveBackward(1);\r\n        }\r\n        if(gamepad1.left_stick_x>pace){\r\n            robot.moveRight(1);\r\n        }\r\n        if(gamepad1.left_stick_x<-pace){\r\n            robot.moveLeft(1);\r\n        }\r\n        if(gamepad1.right_stick_x>pace){\r\n            robot.turnRight(1);\r\n        }\r\n        if(gamepad1.right_stick_x<-pace){\r\n            robot.turnLeft(1);\r\n        }\r\n        if(gamepad1.y){\r\n            if(speed == 1) {\r\n                speed = 2;\r\n        }\r\n        if(gamepad1.y){\r\n            if(speed == 2){\r\n                speed = 2;\r\n        }\r\n        if(gamepad1.a){\r\n            if(speed == 2){\r\n                speed = 1;\r\n            }\r\n        if(gamepad1.a){\r\n            if(speed == 1) {\r\n                speed = 1;\r\n}\r\n}\r\n}\r\n}\r\n}\r\n\r\n\r\n        //DIAMOND\r\n//                 /\\\r\n//                //\\\\\r\n//               ///\\\\\\\r\n//              ////\\\\\\\\\r\n//             /////\\\\\\\\\\\r\n//            //////\\\\\\\\\\\\\r\n//            \\\\\\\\\\\\//////\r\n//             \\\\\\\\\\/////\r\n//              \\\\\\\\////\r\n//               \\\\\\///\r\n//                \\\\//\r\n//                 \\/\r\n        //DIAMOND\r\n\r\n\r\n\r\n        if (gamepad1.atRest()) robot.rest();\r\n        else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {\r\n                robot.turnRight(gamepad1.left_stick_x);\r\n            } else robot.moveBackward(gamepad1.left_stick_y);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java b/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java
+--- a/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java	(revision 24a477e9e18192e80091c8926b57db5488e6aac8)
++++ b/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java	(date 1637185966213)
+@@ -14,53 +14,58 @@
+     public void init() {
+         robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+     }
++
+     @Override
+     public void loop() {
+ 
+         double pace = 0.5;
+         int speed = 1;
+ 
+-        if (gamepad1.right_stick_y>pace){
++        if (gamepad1.right_stick_y > pace) {
+             robot.moveForward(1);
+         }
+-        if(gamepad1.right_stick_y<-pace){
++        if (gamepad1.right_stick_y < -pace) {
+             robot.moveBackward(1);
+         }
+-        if(gamepad1.left_stick_x>pace){
++        if (gamepad1.left_stick_x > pace) {
+             robot.moveRight(1);
+         }
+-        if(gamepad1.left_stick_x<-pace){
++        if (gamepad1.left_stick_x < -pace) {
+             robot.moveLeft(1);
+         }
+-        if(gamepad1.right_stick_x>pace){
++        if (gamepad1.right_stick_x > pace) {
+             robot.turnRight(1);
+         }
+-        if(gamepad1.right_stick_x<-pace){
++        if (gamepad1.right_stick_x < -pace) {
+             robot.turnLeft(1);
+         }
+-        if(gamepad1.y){
+-            if(speed == 1) {
++        if (gamepad1.y) {
++            if (speed == 1) {
+                 speed = 2;
+-        }
+-        if(gamepad1.y){
+-            if(speed == 2){
+-                speed = 2;
+-        }
+-        if(gamepad1.a){
+-            if(speed == 2){
+-                speed = 1;
+-            }
+-        if(gamepad1.a){
+-            if(speed == 1) {
+-                speed = 1;
+-}
+-}
+-}
+-}
+-}
++            }
++            if (gamepad1.y) {
++                if (speed == 2) {
++                    speed = 5;
++                }
++                if (gamepad1.a) {
++                    if (speed == 2) {
++                        speed = 1;
++                    }
++                    if (gamepad1.a) {
++                        if (speed == 5) {
++                            speed = 2;
++                        }
++                        if (gamepad1.a) {
++                            if (speed == 1) {
++                                speed = 1;
++                            }
++                        }
++                    }
++                }
++            }
+ 
+ 
+-        //DIAMOND
++            //DIAMOND
+ //                 /\
+ //                //\\
+ //               ///\\\
+@@ -73,14 +78,15 @@
+ //               \\\///
+ //                \\//
+ //                 \/
+-        //DIAMOND
++            //DIAMOND
+ 
+ 
+-
+-        if (gamepad1.atRest()) robot.rest();
+-        else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
+-                robot.turnRight(gamepad1.left_stick_x);
+-            } else robot.moveBackward(gamepad1.left_stick_y);
++            if (gamepad1.atRest()) robot.rest();
++            else {
++                if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
++                    robot.turnRight(gamepad1.left_stick_x);
++                } else robot.moveBackward(gamepad1.left_stick_y);
++            }
+         }
+     }
+ }
