@@ -182,13 +182,13 @@ public class Anvil {
     }
 
     public void moveRight(double pace) {
-        for (DcMotor x : unique) x.setPower(-pace);
-        for (DcMotor x : special) x.setPower(pace);
+        for (DcMotor x : unique) x.setPower(pace);
+        for (DcMotor x : special) x.setPower(-pace);
     }
 
     public void moveLeft(double pace) {
-        for (DcMotor x : unique) x.setPower(pace);
-        for (DcMotor x : special) x.setPower(-pace);
+        for (DcMotor x : unique) x.setPower(-pace);
+        for (DcMotor x : special) x.setPower(pace);
     }
 
     public void armMove(double pace) {
@@ -210,10 +210,6 @@ public class Anvil {
         front[0].setTargetPosition(ticks);
         front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[1].setTargetPosition(-ticks);
-        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
         this.turnRight(speed);
         while (ntarget(ticks, front[0])) {
             continue;
@@ -225,9 +221,6 @@ public class Anvil {
     }
     public void turnLeftFT(int ticks, double speed) {
         this.rest();
-        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[1].setTargetPosition(ticks);
-        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         front[0].setTargetPosition(-ticks);
@@ -246,10 +239,6 @@ public class Anvil {
         this.ticks = ticks;
         //Blocks until the robot has gotten to the desired location.
         this.rest();
-            front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            front[1].setTargetPosition(-ticks);
-            front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
             front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             front[0].setTargetPosition(ticks);
             front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -269,9 +258,6 @@ public class Anvil {
         front[0].setTargetPosition(-ticks);
         front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[1].setTargetPosition(ticks);
-        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveLeft(0.3);
         while (ntarget(-ticks, front[0])) {
             continue;
