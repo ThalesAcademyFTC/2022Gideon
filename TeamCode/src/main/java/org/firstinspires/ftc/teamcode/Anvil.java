@@ -135,6 +135,7 @@ public class Anvil {
                 right = new DcMotor[]{motor2, motor4};
                 special = new DcMotor[]{motor2, motor3};
                 unique = new DcMotor[]{motor1, motor4};
+                front = new DcMotor[]{motor1, motor2};
                 break;
             default:
                 telemetry.addLine("Invalid type " + type + " passed to Anvil's init function. Nothing has been set up.");
