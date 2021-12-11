@@ -40,7 +40,6 @@ public class QuinnTele2022 extends OpMode {
 
         if (gamepad2.dpad_up) {
             robot.armMotor.setPower(1);
-            robot.moveForward(pace);
         } else robot.armMotor.setPower(0);
 
         //MOVEMENT
