@@ -34,12 +34,6 @@ public class Tele extends OpMode {
 
         //If the gamepad is NOT at rest, then we want to see what we need to do.
         if (gamepad1.atRest()) robot.rest();
-
-        double pace = 0.5;
-
-        robot.motor2.setPower(1);
-        if (gamepad2.right_bumper) ;
-        robot.moveForward(pace);
     }
 
 

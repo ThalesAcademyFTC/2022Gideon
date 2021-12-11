@@ -14,7 +14,7 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         Normal_Forward,
         Faster_Forward
     }
-
+    SpeedToggle mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
     @Override
     public void init() {
 
@@ -22,9 +22,7 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         robot = new Anvil_With_Back_Wheel_Speed(hardwareMap, Anvil_With_Back_Wheel_Speed.Drivetrain.MECHANUM, telemetry);
     }
     @Override
-    private void loop(SpeedToggle mode) {
-
-        mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
+    public void loop() {
 
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
