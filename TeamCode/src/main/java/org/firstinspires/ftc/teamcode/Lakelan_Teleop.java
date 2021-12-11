@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //@Disabled
 public class Lakelan_Teleop extends OpMode {
 
-    private Anvil_With_Back_Wheel_Speed robot;
+    private Anvil robot;
 
     public enum SpeedToggle {
         Normal_Forward,
@@ -20,7 +20,7 @@ public class Lakelan_Teleop extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil_With_Back_Wheel_Speed(hardwareMap, Anvil_With_Back_Wheel_Speed.Drivetrain.MECHANUM, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
     @Override
     public void loop() {
