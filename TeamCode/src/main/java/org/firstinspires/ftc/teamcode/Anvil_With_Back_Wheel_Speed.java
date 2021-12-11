@@ -2,29 +2,24 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class Anvil {
+public class Anvil_With_Back_Wheel_Speed {
     //Define servo and motor variables
     public DcMotor motor1, motor2, motor3, motor4;
     public CRServo crservo1;
     public Servo servo1;
-    public DcMotor carouselMotor, armMotor;
+    public DcMotor clawMotor, armMotor;
 
     //Reference to mapped servo/motor controller
     private HardwareMap hwMap;
 
     public Telemetry telemetry;
 
-    public DcMotor[] forward, front, right, left, special, unique;
-    private int ticks;
-
-    public void clawMotor(double pace) {
-    }
+    public DcMotor[] forward, backWheelFaster, frontWheelNormal, front, right, left, special, unique;
 
     public enum Drivetrain {
         HOLONOMIC,
@@ -34,7 +29,7 @@ public class Anvil {
         OMNIDRIVE,
     }
 
-    public Anvil(HardwareMap ahwMap, Drivetrain type, Telemetry telem) {
+    public Anvil_With_Back_Wheel_Speed(HardwareMap ahwMap, Drivetrain type, Telemetry telem) {
         hwMap = ahwMap;
 
         telemetry = telem;
@@ -68,6 +63,7 @@ public class Anvil {
                 motor2 = hwMap.dcMotor.get("motor2");
                 motor3 = hwMap.dcMotor.get("motor3");
                 motor4 = hwMap.dcMotor.get("motor4");
+                clawMotor = hwMap.dcMotor.get("clawMotor");
                 motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.REVERSE);
                 motor3.setDirection(DcMotor.Direction.FORWARD);
@@ -78,18 +74,18 @@ public class Anvil {
                 break;
             case HOLONOMIC:
                 //Assign motors
-                carouselMotor = hwMap.dcMotor.get("carouselMotor");
+                clawMotor = hwMap.dcMotor.get("clawMotor");
                 motor1 = hwMap.dcMotor.get("motor1");
                 motor2 = hwMap.dcMotor.get("motor2");
                 motor3 = hwMap.dcMotor.get("motor3");
                 motor4 = hwMap.dcMotor.get("motor4");
-                //Set motor directions;
+                //Set motor directions
                 motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.REVERSE);
                 motor3.setDirection(DcMotor.Direction.FORWARD);
                 motor4.setDirection(DcMotor.Direction.REVERSE);
                 //Set motor purposes
-                forward = new DcMotor[]{motor1, motor2, motor3, motor4, carouselMotor};
+                forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 right = new DcMotor[]{motor2, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 special = new DcMotor[]{motor1, motor4};
@@ -124,19 +120,18 @@ public class Anvil {
                 motor3 = hwMap.dcMotor.get("motor3");
                 motor4 = hwMap.dcMotor.get("motor4");
                 armMotor = hwMap.dcMotor.get("armMotor");
-                carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
                 motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.REVERSE);
                 motor3.setDirection(DcMotor.Direction.FORWARD);
                 motor4.setDirection(DcMotor.Direction.REVERSE);
-                carouselMotor.setDirection(DcMotor.Direction.FORWARD);
-                carouselMotor.setDirection(DcMotor.Direction.FORWARD);
-                forward = new DcMotor[]{motor1, motor2, motor3, motor4, armMotor, carouselMotor};
+                forward = new DcMotor[]{motor1, motor2, motor3, motor4};
+                backWheelFaster = new DcMotor[] {motor3, motor4};
+                frontWheelNormal = new DcMotor[] {motor1, motor2};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};
-                special = new DcMotor[]{motor2, motor3, armMotor};
-                unique = new DcMotor[]{motor1, motor4, carouselMotor};
+                special = new DcMotor[]{motor2, motor3};
+                unique = new DcMotor[]{motor1, motor4};
                 break;
             default:
                 telemetry.addLine("Invalid type " + type + " passed to Anvil's init function. Nothing has been set up.");
@@ -175,26 +170,19 @@ public class Anvil {
             x.setPower(0);
         }
     }
-
     public void moveDiagonal(double pacex, double pacey, double speed) {
         double pace = (Math.abs(pacex) + Math.abs(pacey)) / 2;
         for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace) / speed);
         for (DcMotor x : unique) x.setPower((Math.round(pacey - pacex) * pace) / speed);
     }
 
-    public void moveRight(double pace) {
+    public void moveRight(double pace){
         for (DcMotor x : unique) x.setPower(-pace);
         for (DcMotor x : special) x.setPower(pace);
     }
-
     public void moveLeft(double pace) {
         for (DcMotor x : unique) x.setPower(pace);
         for (DcMotor x : special) x.setPower(-pace);
-    }
-
-    public void armMove(double pace) {
-        for (DcMotor x : forward)
-            x.setPower(-pace);
     }
 
     //The functions below are used in autonomous for precise movements.
@@ -244,7 +232,6 @@ public class Anvil {
         }
     }
     public void moveRightFT(int ticks) {
-        this.ticks = ticks;
         //Blocks until the robot has gotten to the desired location.
         this.rest();
             front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

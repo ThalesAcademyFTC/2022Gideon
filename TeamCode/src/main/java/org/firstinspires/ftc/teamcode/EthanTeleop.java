@@ -1,13 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Tele", group="Template")
-//@Disabled
-public class Tele extends OpMode {
+@TeleOp(name="EthanTeleop", group="Template")
+//Disabled
+public class EthanTeleop extends OpMode {
 
     private Anvil robot;
 
@@ -26,24 +24,22 @@ public class Tele extends OpMode {
 
 
         //In the gap below would normally be where you would create if statements for buttons
-        if (gamepad1.x){
 
-        }
-
-        //MOVEMENT
-        //First, we want to make the robot rest if the gamepad is not being touched
-
-
-        //If the gamepad is NOT at rest, then we want to see what we need to do.
         if (gamepad1.atRest()) robot.rest();
+
         else {
-        //If the gamepad is NOT at rest, then we want to see what we need to do.
 
+        double pace = 0.5;
 
-        //This is the code used to run the movement for Tank drivetrain.
-            if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
-                robot.turnRight(gamepad1.left_stick_x);
-            } else robot.moveBackward(gamepad1.left_stick_y);
+        if (gamepad1.y)
+            robot.moveForward(pace);
+        if (gamepad1.a)
+            robot.moveBackward(pace);
+        if (gamepad1.x)
+            robot.moveLeft(pace);
+        if (gamepad1.b)
+            robot.moveRight(pace);
+
         }
     }
 }
