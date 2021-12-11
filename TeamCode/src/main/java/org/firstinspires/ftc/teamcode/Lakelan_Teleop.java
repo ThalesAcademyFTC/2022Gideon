@@ -53,17 +53,12 @@ public class Lakelan_Teleop extends OpMode {
                     robot.moveLeft(-gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_y >= 0.2){
                     robot.moveForward(gamepad1.left_stick_y);
-                } else if (gamepad1.left_stick_y < -0.2){
+                } else if (gamepad1.left_stick_y < -0.2) {
                     robot.moveBackward(-gamepad1.left_stick_y);
-                } else if (gamepad1.left_stick_x > 0.2 && gamepad1.left_stick_y > 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x < - 0.2 && gamepad1.left_stick_y > 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x < - 0.2 && gamepad1.left_stick_y < - 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x > 0.2 && gamepad1.left_stick_y < - 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
+                } else if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
+                    robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 1);
                 }
+
             case Slower_Forward:
                 if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x/2);
@@ -71,18 +66,13 @@ public class Lakelan_Teleop extends OpMode {
                     robot.moveLeft(-gamepad1.left_stick_x/2);
                 } else if (gamepad1.left_stick_y >= 0.2){
                     robot.moveForward(gamepad1.left_stick_y/2);
-                } else if (gamepad1.left_stick_y < -0.2){
-                    robot.moveBackward(-gamepad1.left_stick_y/2);
-                } else if (gamepad1.left_stick_x > 0.2 && gamepad1.left_stick_y > 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x < - 0.2 && gamepad1.left_stick_y > 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x < - 0.2 && gamepad1.left_stick_y < - 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
-                } else if (gamepad1.left_stick_x > 0.2 && gamepad1.left_stick_y < - 0.2) {
-                    robot.moveDiagonal(2, 2, 0.5);
+                } else if (gamepad1.left_stick_y < -0.2) {
+                    robot.moveBackward(-gamepad1.left_stick_y / 2);
+                } else if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
+                    robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 0.5);
                 }
+            }
+
         }
 
     }
-}

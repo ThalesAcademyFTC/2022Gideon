@@ -126,17 +126,15 @@ public class Anvil {
                 armMotor = hwMap.dcMotor.get("armMotor");
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
-                motor1.setDirection(DcMotor.Direction.FORWARD);
-                motor2.setDirection(DcMotor.Direction.REVERSE);
-                motor3.setDirection(DcMotor.Direction.FORWARD);
-                motor4.setDirection(DcMotor.Direction.REVERSE);
-                carouselMotor.setDirection(DcMotor.Direction.FORWARD);
-                carouselMotor.setDirection(DcMotor.Direction.FORWARD);
-                forward = new DcMotor[]{motor1, motor2, motor3, motor4, armMotor, carouselMotor};
+                motor1.setDirection(DcMotor.Direction.REVERSE);
+                motor2.setDirection(DcMotor.Direction.FORWARD);
+                motor3.setDirection(DcMotor.Direction.REVERSE);
+                motor4.setDirection(DcMotor.Direction.FORWARD);
+                forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};
-                special = new DcMotor[]{motor2, motor3, armMotor};
-                unique = new DcMotor[]{motor1, motor4, carouselMotor};
+                special = new DcMotor[]{motor2, motor3};
+                unique = new DcMotor[]{motor1, motor4};
                 break;
             default:
                 telemetry.addLine("Invalid type " + type + " passed to Anvil's init function. Nothing has been set up.");
@@ -179,7 +177,7 @@ public class Anvil {
     public void moveDiagonal(double pacex, double pacey, double speed) {
         double pace = (Math.abs(pacex) + Math.abs(pacey)) / 2;
         for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace) / speed);
-        for (DcMotor x : unique) x.setPower((Math.round(pacey - pacex) * pace) / speed);
+        for (DcMotor x : unique) x.setPower((Math.round(pacex + pacey) * pace) / speed);
     }
 
     public void moveRight(double pace) {
