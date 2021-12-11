@@ -15,12 +15,14 @@ public class Tele extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
 
     @Override
     public void loop() {
-
+        telemetry.addData("motor1", robot.motor1.getCurrentPosition());
+        telemetry.addData("motor2", robot.motor2.getCurrentPosition());
+        telemetry.update();
         //This nested if statement is used to make the robot move using the left joystick.
         // It works for every drive train, as long as it is set up in Anvil!
 

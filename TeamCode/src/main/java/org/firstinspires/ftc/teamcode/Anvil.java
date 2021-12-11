@@ -215,7 +215,7 @@ public class Anvil {
         front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         this.turnRight(speed);
-        while (ntarget(ticks, forward[0]) || ntarget(-ticks, forward[1])) {
+        while (ntarget(ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -234,7 +234,7 @@ public class Anvil {
         front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         this.turnLeft(speed);
-        while (ntarget(-ticks, forward[0]) || ntarget(ticks, forward[1])) {
+        while (ntarget(-ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -254,7 +254,7 @@ public class Anvil {
             front[0].setTargetPosition(ticks);
             front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveRight(0.3);
-        while (ntarget(ticks, front[0]) || ntarget(-ticks, front[1])) {
+        while (ntarget(ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -273,7 +273,7 @@ public class Anvil {
         front[1].setTargetPosition(ticks);
         front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveLeft(0.3);
-        while (ntarget(-ticks, front[0]) || ntarget(ticks, front[1])) {
+        while (ntarget(-ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -290,7 +290,7 @@ public class Anvil {
             x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
         this.moveForward(speed);
-        while (ntarget(ticks, front[0]) || ntarget(ticks, front[1])) {
+        while (ntarget(ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -307,7 +307,7 @@ public class Anvil {
             x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
         this.moveBackward(speed);
-        while (ntarget(-ticks, front[0]) || ntarget(-ticks, front[1])) {
+        while (ntarget(-ticks, front[0])) {
             continue;
         }
         for (DcMotor x : forward) {

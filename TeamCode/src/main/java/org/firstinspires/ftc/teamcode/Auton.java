@@ -26,7 +26,7 @@ public class Auton extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
-        robot.moveForwardFT(1000, 0.5);
+       // robot.moveForwardFT(1000, 0.5);
 
         robot.turnLeftFT(1000, 0.5);
 
