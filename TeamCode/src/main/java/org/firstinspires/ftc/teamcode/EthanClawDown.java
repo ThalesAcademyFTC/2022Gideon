@@ -13,7 +13,7 @@ public class EthanClawDown extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
     }
 
     @Override
@@ -25,17 +25,16 @@ public class EthanClawDown extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
-
         if (gamepad2.dpad_down) {
             robot.armMotor.setPower(-1);
         } else robot.armMotor.setPower(0);
-
 
         if (gamepad1.atRest()) robot.rest();
 
         else {
 
             double pace = -0.5;
+
 
         }
     }
