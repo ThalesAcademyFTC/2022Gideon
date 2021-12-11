@@ -28,10 +28,10 @@ public class Lakelan_Right_Stick_Turning extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
-                if (gamepad1.left_stick_x >= 0.2){
-                    robot.turnRight(gamepad1.left_stick_x);
-                } else if (gamepad1.left_stick_x < -0.2) {
-                    robot.turnLeft(-gamepad1.left_stick_x);
+                if (gamepad1.right_stick_x >= 0.2){
+                    robot.turnRight(gamepad1.right_stick_x);
+                } else if (gamepad1.right_stick_x < -0.2) {
+                    robot.turnLeft(-gamepad1.right_stick_x);
                 }
 
     }

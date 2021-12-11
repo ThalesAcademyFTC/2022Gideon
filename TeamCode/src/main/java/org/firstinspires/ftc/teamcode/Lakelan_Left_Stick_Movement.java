@@ -14,7 +14,9 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         Normal_Forward,
         Faster_Forward
     }
+
     SpeedToggle mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
+
     @Override
     public void init() {
 
