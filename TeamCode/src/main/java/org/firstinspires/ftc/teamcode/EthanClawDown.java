@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="EthanTeleop", group="Template")
+@TeleOp(name="EthanClawDown", group="Template")
 //Disabled
 public class EthanClawDown extends OpMode {
 
@@ -13,7 +13,7 @@ public class EthanClawDown extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
 
     @Override
@@ -25,15 +25,17 @@ public class EthanClawDown extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
-        if (gamepad1.atRest()) robot.rest();
-
-        else {
-
-        double pace = -0.5;
 
         if (gamepad2.dpad_down) {
             robot.armMotor.setPower(-1);
         } else robot.armMotor.setPower(0);
+
+
+        if (gamepad1.atRest()) robot.rest();
+
+        else {
+
+            double pace = -0.5;
 
         }
     }

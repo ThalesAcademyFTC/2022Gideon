@@ -18,10 +18,10 @@ public class AlexTeleop extends OpMode {
     public void loop() {
 
         if(gamepad2.left_trigger > 0.5){
-            robot.servo1.setPosition(1/25);
+            robot.servo1.setPosition(0.1);
         }
         if(gamepad2.right_trigger > 0.5){
-            robot.servo1.setPosition(25/25);
+            robot.servo1.setPosition(1);
         }
 
 
