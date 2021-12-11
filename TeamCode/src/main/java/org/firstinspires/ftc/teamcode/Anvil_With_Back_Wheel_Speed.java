@@ -150,11 +150,6 @@ public class Anvil_With_Back_Wheel_Speed {
         for (DcMotor x : forward) x.setPower(pace);
     }
 
-    public void moveForwardFaster(double pace) {
-        for (DcMotor x : backWheelFaster) x.setPower(2 * pace);
-        for (DcMotor x : frontWheelNormal) x.setPower(pace);
-    }
-
     public void turnRight(double pace) {
         for (DcMotor x : right) x.setPower(-pace);
         for (DcMotor x : left) x.setPower(pace);

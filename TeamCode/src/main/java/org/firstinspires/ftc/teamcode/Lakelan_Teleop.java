@@ -2,26 +2,25 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name="Lakelan_Left_Stick_Movement", group="Template")
+@TeleOp(name="Lakelan_Teleop", group="Template")
 //@Disabled
-public class Lakelan_Left_Stick_Movement extends OpMode {
+public class Lakelan_Teleop extends OpMode {
 
-    private Anvil_With_Back_Wheel_Speed robot;
+    private Anvil robot;
 
     public enum SpeedToggle {
         Normal_Forward,
         Slower_Forward
     }
 
-    SpeedToggle mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
+    SpeedToggle mode = Lakelan_Teleop.SpeedToggle.Normal_Forward;
 
     @Override
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil_With_Back_Wheel_Speed(hardwareMap, Anvil_With_Back_Wheel_Speed.Drivetrain.MECHANUM, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
     @Override
     public void loop() {
@@ -33,11 +32,17 @@ public class Lakelan_Left_Stick_Movement extends OpMode {
         //In the gap below would normally be where you would create if statements for buttons
 
         if (gamepad1.y) {
-            if (mode == Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward) {
+            if (mode == Lakelan_Teleop.SpeedToggle.Normal_Forward) {
                 mode = SpeedToggle.Slower_Forward;
             } else {
-                mode = Lakelan_Left_Stick_Movement.SpeedToggle.Normal_Forward;
+                mode = Lakelan_Teleop.SpeedToggle.Normal_Forward;
             }
+        }
+
+        if (gamepad1.right_stick_x >= 0.2){
+            robot.turnRight(gamepad1.right_stick_x);
+        } else if (gamepad1.right_stick_x < -0.2) {
+            robot.turnLeft(-gamepad1.right_stick_x);
         }
 
         switch (mode){

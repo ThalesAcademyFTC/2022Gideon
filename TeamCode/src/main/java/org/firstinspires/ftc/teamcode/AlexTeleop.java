@@ -12,29 +12,19 @@ public class AlexTeleop extends OpMode {
 
     @Override
     public void init() {
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
     }
     @Override
     public void loop() {
 
-        double pace = 0.5;
-
-
-        if (gamepad1.right_trigger>pace){
-            robot.moveForward(1);
+        if(gamepad2.left_trigger > 0.5){
+            robot.servo1.setPosition(1/25);
         }
-        if(gamepad1.left_trigger>pace){
-            robot.moveBackward(1);
-        }
-        if(gamepad1.right_bumper){
-            robot.turnRight(1);
-        }
-        if(gamepad1.left_bumper){
-            robot.turnLeft(1);
+        if(gamepad2.right_trigger > 0.5){
+            robot.servo1.setPosition(25/25);
         }
 
 
-
-        if (gamepad1.atRest()) robot.rest();
+        if (gamepad2.atRest()) robot.rest();
     }
 }
