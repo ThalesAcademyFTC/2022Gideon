@@ -30,6 +30,9 @@ public class Anvil {
 
     public DcMotor[] forward, front, right, left, special, unique;
 
+    public void clawMotor(double pace) {
+    }
+
     public enum Drivetrain {
         HOLONOMIC,
         MECHANUM,
