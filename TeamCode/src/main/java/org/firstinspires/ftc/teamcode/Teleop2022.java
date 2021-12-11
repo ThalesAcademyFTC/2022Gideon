@@ -3,9 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Lakelan_Teleop", group="Template")
+@TeleOp(name="Teleop2022", group="Template")
 //@Disabled
-public class Lakelan_Teleop extends OpMode {
+public class Teleop2022 extends OpMode {
 
     private Anvil robot;
 
@@ -14,7 +14,7 @@ public class Lakelan_Teleop extends OpMode {
         Slower_Forward
     }
 
-    SpeedToggle mode = Lakelan_Teleop.SpeedToggle.Normal_Forward;
+    SpeedToggle mode = Teleop2022.SpeedToggle.Normal_Forward;
 
     @Override
     public void init() {
@@ -30,21 +30,44 @@ public class Lakelan_Teleop extends OpMode {
         if (gamepad1.atRest()) robot.rest();
 
         //In the gap below would normally be where you would create if statements for buttons
+        //move the claw arm up and down
+        if (gamepad2.dpad_down) {
+            robot.armMotor.setPower(-1);
+        } else if (gamepad2.dpad_up) {
+            robot.armMotor.setPower(1);
+        } else robot.armMotor.setPower(0);
 
+        //spin the carousel
+        if (gamepad2.right_bumper) {
+            robot.carouselMotor.setPower(1);
+        } else if (gamepad2.left_bumper) {
+            robot.carouselMotor.setPower(-1);
+        } else robot.carouselMotor.setPower(0);
+
+        //Open and close claw
+        if(gamepad2.left_trigger > 0.5){
+            robot.servo1.setPosition(0.1);
+        } else if(gamepad2.right_trigger > 0.5) {
+            robot.servo1.setPosition(1);
+        }
+
+        //change from normal to slow speed and vice versa
         if (gamepad1.y) {
-            if (mode == Lakelan_Teleop.SpeedToggle.Normal_Forward) {
+            if (mode == Teleop2022.SpeedToggle.Normal_Forward) {
                 mode = SpeedToggle.Slower_Forward;
             } else {
-                mode = Lakelan_Teleop.SpeedToggle.Normal_Forward;
+                mode = Teleop2022.SpeedToggle.Normal_Forward;
             }
         }
 
+        //rotate left and right
         if (gamepad1.right_stick_x >= 0.2){
             robot.turnRight(gamepad1.right_stick_x);
         } else if (gamepad1.right_stick_x < -0.2) {
             robot.turnLeft(-gamepad1.right_stick_x);
         }
 
+        //move forward, back, left, right
         switch (mode){
             case Normal_Forward:
                 if (gamepad1.left_stick_x >= 0.2){
