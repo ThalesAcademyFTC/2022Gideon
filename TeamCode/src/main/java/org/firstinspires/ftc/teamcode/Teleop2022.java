@@ -70,7 +70,10 @@ public class Teleop2022 extends OpMode {
         //move forward, back, left, right
         switch (mode){
             case Normal_Forward:
-                if (gamepad1.left_stick_x >= 0.2){
+                if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
+                robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 1);
+                }
+                  else if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x);
@@ -78,24 +81,23 @@ public class Teleop2022 extends OpMode {
                     robot.moveForward(gamepad1.left_stick_y);
                 } else if (gamepad1.left_stick_y < -0.2) {
                     robot.moveBackward(-gamepad1.left_stick_y);
-                } else if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
-                    robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 1);
                 }
 
             case Slower_Forward:
-                if (gamepad1.left_stick_x >= 0.2){
+                if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
+                    robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 0.5);
+                }
+                  else if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x/2);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x/2);
                 } else if (gamepad1.left_stick_y >= 0.2){
                     robot.moveForward(gamepad1.left_stick_y/2);
-                } else if (gamepad1.left_stick_y < -0.2) {
+                } else if (gamepad1.left_stick_y < -0.2){
                     robot.moveBackward(-gamepad1.left_stick_y / 2);
-                } else if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
-                    robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 0.5);
+                }
                 }
             }
 
         }
 
-    }
