@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -14,7 +15,7 @@ public class Anvil {
     public CRServo crservo1;
     public Servo servo1;
     public DcMotor carouselMotor, armMotor;
-
+    public ColorSensor sensorColor;
     //Reference to mapped servo/motor controller
     private HardwareMap hwMap;
 
@@ -126,6 +127,7 @@ public class Anvil {
                 armMotor = hwMap.dcMotor.get("armMotor");
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
+                sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
                 motor1.setDirection(DcMotor.Direction.REVERSE);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
@@ -198,6 +200,18 @@ public class Anvil {
 
     //The functions below are used in autonomous for precise movements.
     //They use ticks to move, which is a unit of wheel rotation
+
+    public double getRed(){
+        return sensorColor.red();
+    }
+
+    public double getBlue(){
+        return sensorColor.blue();
+    }
+
+    public double getGreen(){
+        return sensorColor.green();
+    }
 
     public boolean ntarget(int ticks, DcMotor x){ // This method just a way to simplify the math of the following functions.
         if (x.getCurrentPosition() > ticks + 25 || x.getCurrentPosition() < ticks - 25) return true;
