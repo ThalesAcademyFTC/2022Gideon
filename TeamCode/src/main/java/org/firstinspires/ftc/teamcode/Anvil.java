@@ -213,6 +213,10 @@ public class Anvil {
         return sensorColor.green();
     }
 
+    public double getAlpha(){
+        return sensorColor.alpha();
+    }
+
     public boolean ntarget(int ticks, DcMotor x){ // This method just a way to simplify the math of the following functions.
         if (x.getCurrentPosition() > ticks + 25 || x.getCurrentPosition() < ticks - 25) return true;
         else return false;
