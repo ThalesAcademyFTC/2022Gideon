@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -319,4 +321,21 @@ public class Anvil {
             x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
+    public void moveArmFT(int ticks, double speed) {
+        this.rest();
+        for (DcMotor x : front) {
+        x.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        x.setTargetPosition(ticks);
+        x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+        this.moveForward(speed);
+        while (ntarget(ticks, front[0])) {
+         continue;
+        }
+        for (DcMotor x : forward) {
+            x.setPower(0);
+            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        }
+    }
+
 }
