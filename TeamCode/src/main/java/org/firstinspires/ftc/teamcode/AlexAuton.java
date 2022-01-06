@@ -24,11 +24,7 @@ public class AlexAuton extends LinearOpMode {
 
         //WITH TURNING
         robot.moveForwardFT(1000,0.5);
-        robot.turnRightFT(500, 0.5);
-        robot.moveForwardFT(1000,0.5);
-        robot.turnRightFT(500, 0.5);
-        robot.moveForwardFT(1000,0.5);
-        robot.turnRightFT(500, 0.5);
+
 
 //=========================================WITHOUT TURNING========================================\\
 //      robot.moveForwardFT(1000, 0.5);

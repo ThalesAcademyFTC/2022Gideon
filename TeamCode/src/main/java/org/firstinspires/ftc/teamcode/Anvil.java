@@ -130,7 +130,7 @@ public class Anvil {
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
                 sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
-                motor1.setDirection(DcMotor.Direction.REVERSE);
+                motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
@@ -181,8 +181,8 @@ public class Anvil {
 
     public void moveDiagonal(double pacex, double pacey, double speed) {
         double pace = (Math.abs(pacex) + Math.abs(pacey)) / 2;
-        for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace) / speed);
-        for (DcMotor x : unique) x.setPower((Math.round(pacex + pacey) * pace) / speed);
+        for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace)/speed);
+        for (DcMotor x : unique) x.setPower((Math.round(pacey - pacex) * pace)/speed);
     }
 
     public void moveRight(double pace) {
