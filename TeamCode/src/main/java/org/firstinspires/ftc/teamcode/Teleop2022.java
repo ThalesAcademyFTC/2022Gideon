@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCaptureSequence;
+
 @TeleOp(name="Teleop2022", group="Template")
 //@Disabled
 public class Teleop2022 extends OpMode {
@@ -27,7 +29,7 @@ public class Teleop2022 extends OpMode {
 
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
-        if (gamepad1.atRest()) robot.rest();
+        if (gamepad1.atRest() && gamepad2.atRest()) robot.rest();
 
         //In the gap below would normally be where you would create if statements for buttons
         //move the claw arm up and down
@@ -61,33 +63,42 @@ public class Teleop2022 extends OpMode {
         }
 
         //rotate left and right
-        if (gamepad1.right_stick_x >= 0.2){
-            robot.turnRight(gamepad1.right_stick_x);
-        } else if (gamepad1.right_stick_x < -0.2) {
-            robot.turnLeft(-gamepad1.right_stick_x);
-        }
 
         //move forward, back, left, right
         switch (mode){
             case Normal_Forward:
-                if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
-                robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 1);
-                }
-                  else if (gamepad1.left_stick_x >= 0.2){
+                if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.5) {
+                    robot.moveDiagonal(-gamepad1.left_stick_x, -gamepad1.left_stick_y, 1);
+                } else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
+                    robot.moveRight(gamepad1.left_stick_x);
+                } else if (Math.abs(gamepad1.right_stick_x) > Math.abs(gamepad1.right_stick_y)) {
+                    robot.turnRight(gamepad1.right_stick_x);
+                } else robot.moveBackward(gamepad1.left_stick_y);
+
+              /*    else if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x);
                 } else if (gamepad1.left_stick_y >= 0.2){
-                    robot.moveForward(gamepad1.left_stick_y);
+                   robot.moveForward(gamepad1.left_stick_y);
                 } else if (gamepad1.left_stick_y < -0.2) {
                     robot.moveBackward(-gamepad1.left_stick_y);
-                }
+                } */
 
-            case Slower_Forward:
-                if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
+            /* case Slower_Forward:
+               if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.3) {
                     robot.moveDiagonal(gamepad1.left_stick_x, gamepad1.left_stick_y, 0.5);
-                }
-                  else if (gamepad1.left_stick_x >= 0.2){
+                } else if (Math.abs(gamepad1.left_stick_y) >= Math.abs(gamepad1.left_stick_x)) {
+                    robot.moveForward(gamepad1.left_stick_y);
+                } else  {
+                    robot.moveRight(gamepad1.right_stick_x);
+                } else  {
+                robot.moveLeft(gamepad1.left_stick_y);
+                } else if (Math.abs(gamepad1.left_stick_y) <= Math.abs(gamepad1.left_stick_x))) {
+                    robot.moveBackward(gamepad1.left_stick_y);
+
+            } */
+                 /* else if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x/2);
                 } else if (gamepad1.left_stick_x < -0.2) {
                     robot.moveLeft(-gamepad1.left_stick_x/2);
@@ -95,7 +106,8 @@ public class Teleop2022 extends OpMode {
                     robot.moveForward(gamepad1.left_stick_y/2);
                 } else if (gamepad1.left_stick_y < -0.2){
                     robot.moveBackward(-gamepad1.left_stick_y / 2);
-                }
+                } */
+
                 }
             }
 
