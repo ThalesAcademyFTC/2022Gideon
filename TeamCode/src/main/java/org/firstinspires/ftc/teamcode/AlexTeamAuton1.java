@@ -22,11 +22,23 @@ public class AlexTeamAuton1 extends LinearOpMode {
         waitForStart();
 
         double s = 0.5;
-        int t = 3000;
+        int t = 20;
 
-        robot.moveForwardFT(t, s);
+        robot.moveForwardFT(t*30, 0.5);
         sleep(500);
-
+        robot.moveLeftFT(t * 59);
+        sleep(500);
+        robot.moveForwardFT(t*119, 0.5);
+        sleep(500);
+        robot.turnRightFT(500, 0.5);
+        sleep(500);
+        robot.moveForwardFT(t*20, 0.5);
+        sleep(500);
+        //place
+        sleep(500);
+        robot.moveBackwardFT(t*20, 0.5);
+        sleep(500);
+        robot.moveRightFT(t*60);
 
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
 }
