@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -128,7 +130,7 @@ public class Anvil {
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
                 sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
-                motor1.setDirection(DcMotor.Direction.REVERSE);
+                motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
@@ -179,8 +181,8 @@ public class Anvil {
 
     public void moveDiagonal(double pacex, double pacey, double speed) {
         double pace = (Math.abs(pacex) + Math.abs(pacey)) / 2;
-        for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace) / speed);
-        for (DcMotor x : unique) x.setPower((Math.round(pacex + pacey) * pace) / speed);
+        for (DcMotor x : special) x.setPower((Math.round(pacex + pacey) * pace)/speed);
+        for (DcMotor x : unique) x.setPower((Math.round(pacey - pacex) * pace)/speed);
     }
 
     public void moveRight(double pace) {
@@ -319,4 +321,21 @@ public class Anvil {
             x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
+    public void moveArmFT(int ticks, double speed) {
+        this.rest();
+        for (DcMotor x : front) {
+        x.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        x.setTargetPosition(ticks);
+        x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+        this.moveForward(speed);
+        while (ntarget(ticks, front[0])) {
+         continue;
+        }
+        for (DcMotor x : forward) {
+            x.setPower(0);
+            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        }
+    }
+
 }
