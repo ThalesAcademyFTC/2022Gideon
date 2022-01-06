@@ -26,10 +26,26 @@ public class QuinnAuton2022 extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
-        robot.moveForwardFT(500, 0.5);
-        robot.moveRightFT(500);
-        robot.moveBackwardFT(500, 0.5);
-        robot.moveLeftFT(500);
+        robot.moveForwardFT(800,0.5);
+        if(robot.sensorColor.red() >= 255 || robot.sensorColor.green() >= 255){
+            robot.moveRightFT(1000);
+            robot.moveForwardFT(100,0.5);
+            //claw movement and arm movement goes here
+        }
+        robot.moveBackwardFT(900,0.5);
+        robot.turnLeftFT(1000,0.5); //supposed to turn 90 degrees
+        robot.moveForwardFT(2000,0.75);
+        //arm and claw movement here
+        sleep(750);
+        robot.turnRightFT(2000,0.6);
+        robot.moveForwardFT(2000,0.8);
+        robot.turnLeftFT(1000,0.5);
+        robot.moveForwardFT(900,0.5);
+        //more claw and arm movement here
+        sleep(750);
+        robot.moveBackwardFT(100,0.5);
+        robot.turnLeftFT(1000,0.5);
+        robot.moveForwardFT(2000,0.75);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
