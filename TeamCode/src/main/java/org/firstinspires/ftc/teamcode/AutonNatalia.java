@@ -32,9 +32,9 @@ public class AutonNatalia extends LinearOpMode {
 
         robot.moveRightFT(1000);
 
-        robot.moveBackward(1000);
+        robot.moveBackwardFT(1000, 0.5);
 
-        robot.moveLeft(1000);
+        robot.moveLeftFT(1000);
 
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
