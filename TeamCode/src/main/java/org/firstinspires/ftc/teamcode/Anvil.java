@@ -226,12 +226,12 @@ public class Anvil {
 
     public void turnRightFT(int ticks, double speed) {
         this.rest();
-        front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[0].setTargetPosition(ticks);
-        front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        front[1].setTargetPosition(ticks);
+        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         this.turnRight(speed);
-        while (ntarget(ticks, front[0])) {
+        while (ntarget(ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -242,12 +242,12 @@ public class Anvil {
     public void turnLeftFT(int ticks, double speed) {
         this.rest();
 
-        front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[0].setTargetPosition(-ticks);
-        front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        front[1].setTargetPosition(-ticks);
+        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         this.turnLeft(speed);
-        while (ntarget(-ticks, front[0])) {
+        while (ntarget(-ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -259,11 +259,11 @@ public class Anvil {
         this.ticks = ticks;
         //Blocks until the robot has gotten to the desired location.
         this.rest();
-            front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            front[0].setTargetPosition(ticks);
-            front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            front[1].setTargetPosition(ticks);
+            front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveRight(0.3);
-        while (ntarget(ticks, front[0])) {
+        while (ntarget(ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -274,12 +274,12 @@ public class Anvil {
     public void moveLeftFT(int ticks) {
         //Blocks until the robot has gotten to the desired location.
         this.rest();
-        front[0].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        front[0].setTargetPosition(-ticks);
-        front[0].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        front[1].setTargetPosition(-ticks);
+        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         this.moveLeft(0.3);
-        while (ntarget(-ticks, front[0])) {
+        while (ntarget(-ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -290,13 +290,13 @@ public class Anvil {
     public void moveForwardFT(int ticks, double speed) {
         //Blocks until the robot has gotten to the desired location.
         this.rest();
-        for (DcMotor x : front) {
-            x.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            x.setTargetPosition(ticks);
-            x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
+
+        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        front[1].setTargetPosition(ticks);
+        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         this.moveForward(speed);
-        while (ntarget(ticks, front[0])) {
+        while (ntarget(ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
@@ -307,11 +307,9 @@ public class Anvil {
     public void moveBackwardFT(int ticks, double speed) {
         //Blocks until the robot has gotten to the desired location.
         this.rest();
-        for (DcMotor x : front) {
-            x.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            x.setTargetPosition(-ticks);
-            x.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
+        front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        front[1].setTargetPosition(-ticks);
+        front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveBackward(speed);
         while (ntarget(-ticks, front[0])) {
             continue;
