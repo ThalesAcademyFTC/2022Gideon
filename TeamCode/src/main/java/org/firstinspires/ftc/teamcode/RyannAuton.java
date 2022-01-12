@@ -25,10 +25,12 @@ public class RyannAuton extends LinearOpMode {
 
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
-robot.moveForwardFT(1000,0.5);
-robot.moveRightFT(1000);
+
+
 robot.moveBackwardFT(1000,0.5);
-robot.moveLeftFT(1000);
+
+
+
 
 
         // Inside of the while statement below is any code that you want to run in loop during autonomous.

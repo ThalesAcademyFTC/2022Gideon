@@ -25,6 +25,8 @@ public class Anvil {
 
     public DcMotor[] forward, front, right, left, special, unique;
     private int ticks;
+    public int cm;
+
 
     public void clawMotor(double pace) {
     }
@@ -129,7 +131,7 @@ public class Anvil {
                 armMotor = hwMap.dcMotor.get("armMotor");
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
-                sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
+               // sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
                 motor1.setDirection(DcMotor.Direction.FORWARD);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
@@ -224,6 +226,10 @@ public class Anvil {
         else return false;
     }
 
+    public void ticksPerCm (int ticks) {
+        cm = ticks*20;
+    }
+
     public void turnRightFT(int ticks, double speed) {
         this.rest();
         front[1].setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -311,7 +317,7 @@ public class Anvil {
         front[1].setTargetPosition(-ticks);
         front[1].setMode(DcMotor.RunMode.RUN_TO_POSITION);
         this.moveBackward(speed);
-        while (ntarget(-ticks, front[0])) {
+        while (ntarget(-ticks, front[1])) {
             continue;
         }
         for (DcMotor x : forward) {
