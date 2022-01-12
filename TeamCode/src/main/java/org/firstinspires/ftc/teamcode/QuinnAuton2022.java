@@ -27,11 +27,11 @@ public class QuinnAuton2022 extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         robot.moveForwardFT(800,0.5);
-        if(robot.sensorColor.red() >= 255 || robot.sensorColor.green() >= 255){
+
             robot.moveRightFT(1000);
             robot.moveForwardFT(100,0.5);
             //claw movement and arm movement goes here
-        }
+
         robot.moveBackwardFT(900,0.5);
         robot.turnLeftFT(1000,0.5); //supposed to turn 90 degrees
         robot.moveForwardFT(2000,0.75);
