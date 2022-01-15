@@ -27,7 +27,7 @@ public class QuinnAuton2022 extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         int t = 20;
-        int d = 1000;
+        int d = 800;
         //d*1 equals 45 degrees, d*2 equals 90 degrees
 
         robot.moveForwardFT(t*28,0.5);
