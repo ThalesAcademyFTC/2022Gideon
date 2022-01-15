@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Auton", group="Template")
-@Disabled
+@Autonomous(name="RedBar", group="Template")
+//@Disabled
 
 public class LJ_Right_Back_Auton extends LinearOpMode {
     private Anvil robot;
@@ -29,12 +29,13 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         robot.moveForwardFT(ticksCm*28, 0.5);
+        robot.moveLeftFT(ticksCm*53);
+        robot.moveForwardFT(ticksCm*13, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
             //duck-related code
-            robot.moveLeftFT(ticksCm*53);
-            robot.moveForwardFT(ticksCm*13, 0.5);
+
 
             //arm things to put freight on shipping container
             robot.moveArmFT();
@@ -45,11 +46,11 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         //move away from shipping container
         robot.moveBackwardFT(ticksCm*13, 0.5);
         //turn towards back area
-        robot.turnRightFT(ticksCm*2000,0.5);
+        robot.turnRightFT(2000,0.5);
         //go over barrier
         robot.moveForwardFT(ticksCm*1700, 1);
         //turn towards freight
-        robot.turnRightFT(ticksCm*1000, 0.5);
+        robot.turnRightFT(1000, 0.5);
 
         /*more arm things to pick up freight
         robot.moveArmFT();
@@ -58,11 +59,11 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(ticksCm*3000, 0.5);
+        robot.turnRightFT(3000, 0.5);
         //move out of back area
         robot.moveForwardFT(ticksCm*1700, 1);
         //turn all the way toward shipping container
-        robot.turnRightFT(ticksCm*2000, 1);
+        robot.turnRightFT(2000, 1);
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*28, 0.5);
 
@@ -73,7 +74,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         robot.moveBackwardFT(ticksCm*28, 1);
-        robot.turnRightFT(ticksCm*2000, 1);
+        robot.turnRightFT(2000, 1);
         robot.moveForwardFT(ticksCm*1700, 1);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.

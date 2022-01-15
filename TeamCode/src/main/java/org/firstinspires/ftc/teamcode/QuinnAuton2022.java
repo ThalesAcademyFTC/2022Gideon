@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="QuinnAuton", group="Template")
+@Autonomous(name="BlueBar", group="Template")
 //@Disabled
 
 public class QuinnAuton2022 extends LinearOpMode {
@@ -27,7 +27,7 @@ public class QuinnAuton2022 extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         int t = 20;
-        int d = 1000;
+        int d = 750;
         //d*1 equals 45 degrees, d*2 equals 90 degrees
 
         robot.moveForwardFT(t*28,0.5);
@@ -41,9 +41,9 @@ public class QuinnAuton2022 extends LinearOpMode {
         //claw movement and arm movement goes here
 
         //robot turns toward the bars ad moves over them
-        robot.moveBackwardFT(t*55,0.5);
+        robot.moveBackwardFT(t*20,0.5);
         robot.turnLeftFT(d*2, 0.5);
-        robot.moveForwardFT(t*120,0.8);
+        robot.moveForwardFT(t*200,1.0);
 
         //arm and claw movement here
 
@@ -52,11 +52,11 @@ public class QuinnAuton2022 extends LinearOpMode {
 
         //robot turns around and moves over the bars
         robot.turnRightFT(d*4,0.6);
-        robot.moveForwardFT(t*120,1.0);
+        robot.moveForwardFT(t*200,1.0);
 
         //robot turns to the shipping container and moves to the container
         robot.turnLeftFT(d*2,0.5);
-        robot.moveForwardFT(t*55,0.5);
+        robot.moveForwardFT(t*20,0.5);
 
         //more claw and arm movement here
 
@@ -64,9 +64,9 @@ public class QuinnAuton2022 extends LinearOpMode {
         sleep(1000);
 
         //robot turns to the bars nd moves over them
-        robot.moveBackwardFT(t*55,0.5);
+        robot.moveBackwardFT(t*20,0.5);
         robot.turnLeftFT(d*2,0.5);
-        robot.moveForwardFT(t*120,0.8);
+        robot.moveForwardFT(t*200,1.0);
 
         //robot stops moving and parks
 

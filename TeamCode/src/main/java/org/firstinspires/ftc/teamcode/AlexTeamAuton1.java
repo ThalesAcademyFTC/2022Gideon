@@ -26,15 +26,15 @@ public class AlexTeamAuton1 extends LinearOpMode {
 
         robot.moveForwardFT(t*30, 0.5);
         sleep(500);
-        robot.turnLeftFT(1500, 1);
+        robot.turnLeftFT(1700, 1);
         sleep(500);
         robot.moveForwardFT(t*55, 0.5);
         sleep(500);
-        robot.turnRightFT(1500,1);
+        robot.turnRightFT(1700,1);
         sleep(500);
         robot.moveForwardFT(t*95, 0.5);
         sleep(500);
-        robot.turnRightFT(1500,1);
+        robot.turnRightFT(1700,1);
         sleep(500);
         robot.moveForwardFT(t*20, 0.5);
         sleep(500);

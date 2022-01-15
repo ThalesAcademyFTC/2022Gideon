@@ -28,8 +28,9 @@ public class Auton extends LinearOpMode {
 
        // robot.moveForwardFT(1000, 0.5);
 
-        robot.turnLeftFT(2000, 0.5);
-        robot.turnRightFT(2000, 0.5);
+        robot.moveLeftFT(2000);
+        robot.moveRightFT(2000);
+
 
 
 
