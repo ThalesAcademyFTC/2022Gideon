@@ -34,16 +34,16 @@ public class Teleop2022 extends OpMode {
         //In the gap below would normally be where you would create if statements for buttons
         //move the claw arm up and down
         if (gamepad2.dpad_down) {
-            robot.armMotor.setPower(-1);
+            robot.armMotor.setPower(-0.25);
         } else if (gamepad2.dpad_up) {
-            robot.armMotor.setPower(1);
+            robot.armMotor.setPower(0.25);
         } else robot.armMotor.setPower(0);
 
         //spin the carousel
         if (gamepad2.right_bumper) {
-            robot.carouselMotor.setPower(0.5);
+            robot.carouselMotor.setPower(0.25);
         } else if (gamepad2.left_bumper) {
-            robot.carouselMotor.setPower(-0.5);
+            robot.carouselMotor.setPower(-0.25);
         } else robot.carouselMotor.setPower(0);
 
         //Open and close claw

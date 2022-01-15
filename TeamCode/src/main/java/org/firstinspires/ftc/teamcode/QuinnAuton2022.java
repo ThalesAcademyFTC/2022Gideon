@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="QuinnAuton", group="Template")
+@Autonomous(name="BlueBar", group="Template")
 //@Disabled
 
 public class QuinnAuton2022 extends LinearOpMode {
