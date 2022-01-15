@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Auton", group="Template")
-@Disabled
+@Autonomous(name="RedBar", group="Template")
+//@Disabled
 
 public class LJ_Right_Back_Auton extends LinearOpMode {
     private Anvil robot;
@@ -29,12 +29,13 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         robot.moveForwardFT(ticksCm*28, 0.5);
+        robot.moveLeftFT(ticksCm*53);
+        robot.moveForwardFT(ticksCm*13, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
             //duck-related code
-            robot.moveLeftFT(ticksCm*53);
-            robot.moveForwardFT(ticksCm*13, 0.5);
+
 
             //arm things to put freight on shipping container
             robot.moveArmFT();
