@@ -25,12 +25,23 @@ public class EthanAuton extends LinearOpMode {
 
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
+        int ticksPerCm = 20;
 
-        robot.moveForwardFT(500,0.5);
-        robot.moveRightFT(500);
-        robot.moveBackwardFT(500,0.5);
-        robot.moveLeftFT(500);
 
+
+
+        robot.moveForwardFT(ticksPerCm*28, 0.5);
+        sleep(500);
+        robot.moveBackwardFT(ticksPerCm*28, 0.5);
+        sleep(500);
+        robot.moveRightFT(ticksPerCm*42);
+        sleep(500);
+        robot.moveForwardFT(ticksPerCm*88, 0.5);
+        sleep(500);
+        robot.turnLeftFT(1300,0.5);
+        sleep(500);
+        robot.moveForwardFT(ticksPerCm*45,0.5);
+        sleep(500);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
