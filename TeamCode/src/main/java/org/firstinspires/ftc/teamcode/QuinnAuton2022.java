@@ -32,24 +32,43 @@ public class QuinnAuton2022 extends LinearOpMode {
 
         robot.moveForwardFT(t*28,0.5);
 
-            robot.moveRightFT(t*60);
-            robot.moveForwardFT(t*45,0.5);
-            //claw movement and arm movement goes here
+        //robot scans for the duck
 
+        //the robot moves toward the shipping container
+        robot.moveRightFT(t*60);
+        robot.moveForwardFT(t*45,0.5);
+
+        //claw movement and arm movement goes here
+
+        //robot turns toward the bars ad moves over them
         robot.moveBackwardFT(t*55,0.5);
-        robot.turnLeftFT(d*2, 0.5); //supposed to turn 90 degrees
+        robot.turnLeftFT(d*2, 0.5);
         robot.moveForwardFT(t*120,0.8);
+
         //arm and claw movement here
+
+        //robot waits for other robot to maybe move out of the way
         sleep(1000);
+
+        //robot turns around and moves over the bars
         robot.turnRightFT(d*4,0.6);
         robot.moveForwardFT(t*120,1.0);
+
+        //robot turns to the shipping container and moves to the container
         robot.turnLeftFT(d*2,0.5);
         robot.moveForwardFT(t*55,0.5);
+
         //more claw and arm movement here
-        sleep(750);
+
+        //waits for other robot to move
+        sleep(1000);
+
+        //robot turns to the bars nd moves over them
         robot.moveBackwardFT(t*55,0.5);
         robot.turnLeftFT(d*2,0.5);
         robot.moveForwardFT(t*120,0.8);
+
+        //robot stops moving and parks
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
