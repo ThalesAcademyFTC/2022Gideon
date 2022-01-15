@@ -46,11 +46,11 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         //move away from shipping container
         robot.moveBackwardFT(ticksCm*13, 0.5);
         //turn towards back area
-        robot.turnRightFT(ticksCm*2000,0.5);
+        robot.turnRightFT(1300,0.5);
         //go over barrier
-        robot.moveForwardFT(ticksCm*1700, 1);
+        robot.moveForwardFT(ticksCm*130, 1);
         //turn towards freight
-        robot.turnRightFT(ticksCm*1000, 0.5);
+        robot.turnRightFT(650, 0.5);
 
         /*more arm things to pick up freight
         robot.moveArmFT();
@@ -59,11 +59,11 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(ticksCm*3000, 0.5);
+        robot.turnRightFT(1950, 0.5);
         //move out of back area
-        robot.moveForwardFT(ticksCm*1700, 1);
+        robot.moveForwardFT(ticksCm*130, 1);
         //turn all the way toward shipping container
-        robot.turnRightFT(ticksCm*2000, 1);
+        robot.turnRightFT(1300, 1);
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*28, 0.5);
 
@@ -74,8 +74,8 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         robot.moveBackwardFT(ticksCm*28, 1);
-        robot.turnRightFT(ticksCm*2000, 1);
-        robot.moveForwardFT(ticksCm*1700, 1);
+        robot.turnRightFT(1300, 1);
+        robot.moveForwardFT(ticksCm*130, 1);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
