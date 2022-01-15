@@ -32,7 +32,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         sleep(200);
         robot.moveLeftFT(ticksCm*53);
         sleep(200);
-        robot.moveForwardFT(ticksCm*13, 0.5);
+        robot.moveForwardFT(ticksCm*10, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
@@ -46,14 +46,13 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         else //something related to re-scanning
         */
 
-        //move away from shipping container
-        robot.moveBackwardFT(ticksCm*3, 0.5);
+
         sleep(200);
         //turn towards back area
-        robot.turnRightFT(1300,0.5);
+        robot.turnRightFT(1280,0.5);
         sleep(200);
         //go over barrier
-        robot.moveForwardFT(ticksCm*110, 1);
+        robot.moveForwardFT(ticksCm*100, 1);
         sleep(200);
         //turn towards freight
         robot.turnRightFT(650, 0.5);
@@ -66,13 +65,13 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(1950, 0.5);
+        robot.turnRightFT(1720, 0.5);
         sleep(200);
         //move out of back area
         robot.moveForwardFT(ticksCm*130, 1);
         sleep(200);
         //turn all the way toward shipping container
-        robot.turnRightFT(1300, 1);
+        robot.turnRightFT(1280, 1);
         sleep(200);
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*28, 0.5);
@@ -86,7 +85,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
 
         robot.moveBackwardFT(ticksCm*28, 1);
         sleep(200);
-        robot.turnRightFT(1300, 1);
+        robot.turnRightFT(1280, 1);
         sleep(200);
         robot.moveForwardFT(ticksCm*130, 1);
         sleep(200);
