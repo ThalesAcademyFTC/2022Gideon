@@ -32,7 +32,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         sleep(200);
         robot.moveLeftFT(ticksCm*53);
         sleep(200);
-        robot.moveForwardFT(ticksCm*10, 0.5);
+        robot.moveForwardFT(ticksCm*6, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
@@ -52,7 +52,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         robot.turnRightFT(1280,0.5);
         sleep(200);
         //go over barrier
-        robot.moveForwardFT(ticksCm*100, 1);
+        robot.moveForwardFT(ticksCm*120, 1);
         sleep(200);
         //turn towards freight
         robot.turnRightFT(650, 0.5);
@@ -68,7 +68,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         robot.turnRightFT(1720, 0.5);
         sleep(200);
         //move out of back area
-        robot.moveForwardFT(ticksCm*130, 1);
+        robot.moveForwardFT(ticksCm*120, 1);
         sleep(200);
         //turn all the way toward shipping container
         robot.turnRightFT(1280, 1);
