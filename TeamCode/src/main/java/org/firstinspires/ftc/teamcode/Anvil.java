@@ -226,9 +226,10 @@ public class Anvil {
         else return false;
     }
 
-    public void ticksPerCm (int ticks) {
+    public void ticksPerCm(int ticks) {
         cm = ticks*20;
     }
+    //Not Finished
 
     public void turnRightFT(int ticks, double speed) {
         this.rest();

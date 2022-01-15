@@ -26,8 +26,8 @@ public class EthanClawDown extends OpMode {
         //In the gap below would normally be where you would create if statements for buttons
 
         if (gamepad2.dpad_down) {
-            robot.armMotor.setPower(-1);
-        } else robot.armMotor.setPower(0);
+            robot.armMotor.setPower(-0.25);
+        } else robot.armMotor.setPower(0.25);
 
         if (gamepad1.atRest()) robot.rest();
 
