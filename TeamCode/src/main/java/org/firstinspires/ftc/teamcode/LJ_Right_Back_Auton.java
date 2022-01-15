@@ -29,7 +29,9 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         robot.moveForwardFT(ticksCm*28, 0.5);
+        sleep(200);
         robot.moveLeftFT(ticksCm*53);
+        sleep(200);
         robot.moveForwardFT(ticksCm*13, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
@@ -44,12 +46,18 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         else //something related to re-scanning
         */
 
+        //move away from shipping container
+        robot.moveBackwardFT(ticksCm*3, 0.5);
+        sleep(200);
         //turn towards back area
         robot.turnRightFT(1300,0.5);
+        sleep(200);
         //go over barrier
-        robot.moveForwardFT(ticksCm*130, 1);
+        robot.moveForwardFT(ticksCm*110, 1);
+        sleep(200);
         //turn towards freight
         robot.turnRightFT(650, 0.5);
+        sleep(200);
 
         /*more arm things to pick up freight
         robot.moveArmFT();
@@ -59,12 +67,16 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
 
         //turn towards shipping container
         robot.turnRightFT(1950, 0.5);
+        sleep(200);
         //move out of back area
         robot.moveForwardFT(ticksCm*130, 1);
+        sleep(200);
         //turn all the way toward shipping container
         robot.turnRightFT(1300, 1);
+        sleep(200);
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*28, 0.5);
+        sleep(200);
 
         /*even more arm things to put more freight in the shipping container
         robot.moveArmFT();
@@ -73,8 +85,11 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         */
 
         robot.moveBackwardFT(ticksCm*28, 1);
+        sleep(200);
         robot.turnRightFT(1300, 1);
+        sleep(200);
         robot.moveForwardFT(ticksCm*130, 1);
+        sleep(200);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
