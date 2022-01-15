@@ -43,8 +43,7 @@ public class LJ_Right_Back_Auton extends LinearOpMode {
         }
         else //something related to re-scanning
         */
-        //move away from shipping container
-        robot.moveBackwardFT(ticksCm*13, 0.5);
+
         //turn towards back area
         robot.turnRightFT(1300,0.5);
         //go over barrier
