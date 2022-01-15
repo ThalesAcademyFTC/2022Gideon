@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Auton", group="Template")
-@Disabled
+@Autonomous(name="RedBar", group="Template")
+//@Disabled
 
 public class LJ_Right_Back_Auton extends LinearOpMode {
     private Anvil robot;
