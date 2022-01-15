@@ -21,7 +21,7 @@ public class SpencerAuton extends LinearOpMode {
         telemetry.update();
 
         int tcm = 20;
-        int turn = 750;
+        int turn = 650;
         //turn*1 equals 45 degrees, turn*2 equals 90 degrees
 
         //Code Above the waitForStart() is where you define variables or initialize any Vuforia
@@ -31,13 +31,25 @@ public class SpencerAuton extends LinearOpMode {
 
         robot.moveForwardFT(tcm*28,0.5);
         //Pik up the rubber ducky here
-
-        robot.moveForwardFT(tcm*48, 0.5);
+        sleep( 1000);
+        robot.moveLeftFT( tcm*50);
+        sleep( 1000);
+        robot.moveForwardFT(tcm*67, 0.5);
+        sleep( 1000);
         robot.turnRightFT(turn*2, 0.5);
-        robot.moveForwardFT(tcm*47, 0.5);
+        sleep( 1000);
+        robot.moveForwardFT(tcm*79, 1);
+        sleep( 1000);
         //Throw the rubber ducky onto the platform thingy(carousel)
 
-        robot.moveBackwardFT(tcm*28, 0.5);
+        robot.moveBackwardFT(tcm*79, 0.5);
+        sleep( 1000);
+        robot.moveRightFT(tcm*62);
+        sleep( 1000);
+        robot.moveForwardFT(tcm*300, 1);
+        //end code
+
+
 
 
 
