@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
 
 
-@Autonomous(name="Auton", group="Template")
-@Disabled
+@Autonomous(name="TestAuton", group="Template")
+//@Disabled
 
 public class Auton extends LinearOpMode {
     private Anvil robot;
@@ -28,7 +28,9 @@ public class Auton extends LinearOpMode {
 
        // robot.moveForwardFT(1000, 0.5);
 
-        robot.turnLeftFT(1000, 0.5);
+        robot.turnLeftFT(2000, 0.5);
+        robot.turnRightFT(2000, 0.5);
+
 
 
 
