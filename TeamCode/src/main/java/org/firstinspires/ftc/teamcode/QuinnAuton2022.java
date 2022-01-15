@@ -41,9 +41,9 @@ public class QuinnAuton2022 extends LinearOpMode {
         //claw movement and arm movement goes here
 
         //robot turns toward the bars ad moves over them
-        robot.moveBackwardFT(t*35,0.5);
+        robot.moveBackwardFT(t*20,0.5);
         robot.turnLeftFT(d*2, 0.5);
-        robot.moveForwardFT(t*140,1.0);
+        robot.moveForwardFT(t*200,1.0);
 
         //arm and claw movement here
 
@@ -52,11 +52,11 @@ public class QuinnAuton2022 extends LinearOpMode {
 
         //robot turns around and moves over the bars
         robot.turnRightFT(d*4,0.6);
-        robot.moveForwardFT(t*120,1.0);
+        robot.moveForwardFT(t*200,1.0);
 
         //robot turns to the shipping container and moves to the container
         robot.turnLeftFT(d*2,0.5);
-        robot.moveForwardFT(t*55,0.5);
+        robot.moveForwardFT(t*20,0.5);
 
         //more claw and arm movement here
 
@@ -64,9 +64,9 @@ public class QuinnAuton2022 extends LinearOpMode {
         sleep(1000);
 
         //robot turns to the bars nd moves over them
-        robot.moveBackwardFT(t*55,0.5);
+        robot.moveBackwardFT(t*20,0.5);
         robot.turnLeftFT(d*2,0.5);
-        robot.moveForwardFT(t*120,0.8);
+        robot.moveForwardFT(t*200,1.0);
 
         //robot stops moving and parks
 
