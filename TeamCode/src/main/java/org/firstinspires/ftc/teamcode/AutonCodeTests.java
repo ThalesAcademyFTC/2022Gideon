@@ -1,17 +1,17 @@
 package org.firstinspires.ftc.teamcode;
 
+import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
 
+@Autonomous(name="AutonCodeTests", group="Template")
+//@Disabled
 
-@Autonomous(name="Auton", group="Template")
-@Disabled
-
-public class Auton extends LinearOpMode {
+public class AutonCodeTests extends LinearOpMode {
     private Anvil robot;
     private ElapsedTime runtime = new ElapsedTime();
     @Override
@@ -26,9 +26,10 @@ public class Auton extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
-       // robot.moveForwardFT(1000, 0.5);
 
-        robot.turnLeftFT(1000, 0.5);
+
+        robot.moveForwardFT(1000, 0.5);
+
 
 
 

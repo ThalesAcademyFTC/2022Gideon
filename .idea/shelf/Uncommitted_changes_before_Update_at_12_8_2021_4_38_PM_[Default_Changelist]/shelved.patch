@@ -1,0 +1,19 @@
+Index: TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.firstinspires.ftc.teamcode;\r\n\r\nimport com.qualcomm.robotcore.eventloop.opmode.Disabled;\r\nimport com.qualcomm.robotcore.eventloop.opmode.OpMode;\r\nimport com.qualcomm.robotcore.eventloop.opmode.TeleOp;\r\n\r\n@TeleOp(name=\"AlexTeleop\", group=\"Template\")\r\n//Disabled\r\npublic class AlexTeleop extends OpMode {\r\n\r\n    private Anvil robot;\r\n\r\n    @Override\r\n    public void init() {\r\n        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);\r\n    }\r\n    @Override\r\n    public void loop() {\r\n\r\ndouble pace = 0.5;\r\nint speed = 1;\r\n\r\n                if (gamepad1.right_stick_y>pace){\r\n                robot.moveForward(1);\r\n}\r\n                if(gamepad1.right_stick_y<-pace){\r\n                robot.moveBackward(1);\r\n}\r\n               if(gamepad1.left_stick_x>pace){\r\n                robot.moveRight(1);\r\n}\r\n                if(gamepad1.left_stick_x<-pace){\r\n                robot.moveLeft(1);\r\n}\r\n                if(gamepad1.right_stick_x>pace){\r\n                robot.turnRight(1);\r\n}\r\n                if(gamepad1.right_stick_x<-pace){\r\n                robot.turnLeft(1);\r\n}\r\n                if(gamepad1.y){\r\n                if(speed == 1) {\r\n                speed = 2;\r\n}\r\n                if(gamepad1.y){\r\n                if(speed == 2){\r\n                speed = 2;\r\n}\r\n                if(gamepad1.a){\r\n                if(speed == 2){\r\n                speed = 1;\r\n}\r\n                if(gamepad1.a){\r\n                if(speed == 1) {\r\n                speed = 1;\r\n               }\r\n           }\r\n        }\r\n    }\r\n}\r\n// SERVO CONTROLLING\r\n                if (gamepad2.left_trigger>0.5){\r\n                robot.servo1.setPosition(1/25);\r\n}\r\n                if (gamepad2.right_trigger>0.5){\r\n                robot.servo1.setPosition(25/25);\r\n}\r\n\r\n                if (gamepad1.atRest()) robot.rest();\r\n                else { if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {\r\n                robot.turnRight(gamepad1.left_stick_x);\r\n                } else robot.moveBackward(gamepad1.left_stick_y);\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java b/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java
+--- a/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java	(revision a994f7afdaca1b39f2a770d9e237245d61dc1295)
++++ b/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AlexTeleop.java	(date 1638999491114)
+@@ -12,7 +12,7 @@
+ 
+     @Override
+     public void init() {
+-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
++        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
+     }
+     @Override
+     public void loop() {

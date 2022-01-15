@@ -1,13 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name="Tele", group="Template")
-//@Disabled
-public class Tele extends OpMode {
+@TeleOp(name="EthanClawDown", group="Template")
+//Disabled
+public class EthanClawDown extends OpMode {
 
     private Anvil robot;
 
@@ -15,7 +13,7 @@ public class Tele extends OpMode {
     public void init() {
 
         //This code initializes the drivetrain. Make sure that you have the right drivetrain selected!
-        robot = new Anvil(hardwareMap, Anvil.Drivetrain.MECHANUM, telemetry);
+        robot = new Anvil(hardwareMap, Anvil.Drivetrain.TANK, telemetry);
     }
 
     @Override
@@ -27,22 +25,17 @@ public class Tele extends OpMode {
 
         //In the gap below would normally be where you would create if statements for buttons
 
+        if (gamepad2.dpad_down) {
+            robot.armMotor.setPower(-1);
+        } else robot.armMotor.setPower(0);
 
-        //MOVEMENT
-        //First, we want to make the robot rest if the gamepad is not being touched
-
-
-        //If the gamepad is NOT at rest, then we want to see what we need to do.
         if (gamepad1.atRest()) robot.rest();
 
-        double pace = 0.5;
+        else {
 
-        robot.motor2.setPower(1);
-        if (gamepad2.right_bumper) ;
-        robot.moveForward(pace);
-    }
+            double pace = -0.5;
 
 
-
-    //This is the code used to run the movement for drivetrain
         }
+    }
+}
