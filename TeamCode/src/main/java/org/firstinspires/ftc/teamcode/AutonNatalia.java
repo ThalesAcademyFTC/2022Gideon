@@ -31,7 +31,7 @@ public class AutonNatalia extends LinearOpMode {
         class loop{};; {
             robot.moveForwardFT(15, 0.5);
             //scan for duck sensor?
-            robot.moveLeftFT(600); //while scanning for duck, until duck is found
+            robot.moveLeftFT(1000); //while scanning for duck, until duck is found
             robot.moveForwardFT(1400, 0.5);
             robot.moveRightFT (1400);
             robot.turnRightFT (1300, 0.5);
