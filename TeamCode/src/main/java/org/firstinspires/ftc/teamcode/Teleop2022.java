@@ -48,9 +48,18 @@ public class Teleop2022 extends OpMode {
 
         //Open and close claw
         if(gamepad2.left_trigger > 0.5){
-            robot.servo1.setPosition(0.1);
+            while (gamepad2.left_trigger > 0.5) {
+                double x = 0.1;
+                robot.servo1.setPosition(0.1 + x);
+                x += 0.1;
+            }
+
         } else if(gamepad2.right_trigger > 0.5) {
-            robot.servo1.setPosition(1);
+            while (gamepad2.right_trigger > 0.5) {
+                double x = 1;
+                robot.servo1.setPosition(x);
+                x += -0.1;
+            }
         }
 
         //change from normal to slow speed and vice versa
