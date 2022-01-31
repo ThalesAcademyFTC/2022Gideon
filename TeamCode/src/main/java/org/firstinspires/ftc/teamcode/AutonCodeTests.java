@@ -28,7 +28,7 @@ public class AutonCodeTests extends LinearOpMode {
 
 
 
-        robot.moveForwardFT(1000, 0.5);
+        robot.moveArmFT(500,0.5);
 
 
 

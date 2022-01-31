@@ -327,12 +327,12 @@ public class Anvil {
             armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
         this.moveForward(speed);
-        while (ntarget(ticks, front[0])) {
+        while (ntarget(ticks, front[6])) {
          continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor armMotor : forward) {
+            armMotor.setPower(6);
+            armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
     public void moveCarouselFT(int ticks, double speed) {
@@ -343,12 +343,12 @@ public class Anvil {
             carouselMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
         this.moveForward(speed);
-        while (ntarget(ticks, front[0])) {
+        while (ntarget(ticks, front[5])) {
             continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor carouselMotor : forward) {
+            carouselMotor.setPower(5);
+            carouselMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
 }

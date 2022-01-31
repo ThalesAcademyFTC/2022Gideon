@@ -34,7 +34,7 @@ public class EthanAuton extends LinearOpMode {
         sleep(500);
         robot.moveBackwardFT(ticksPerCm*28, 0.5);
         sleep(500);
-        robot.moveRightFT(ticksPerCm*46);
+        robot.moveRightFT(ticksPerCm*49);
         sleep(500);
         robot.moveForwardFT(ticksPerCm*118, 0.5);
         sleep(500);
@@ -46,7 +46,7 @@ public class EthanAuton extends LinearOpMode {
         sleep(500);
         robot.moveBackwardFT(ticksPerCm*98, 0.5);
         sleep(500);
-        robot.moveLeftFT(ticksPerCm*115);
+        robot.moveLeftFT(ticksPerCm*120);
         sleep(500);
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.

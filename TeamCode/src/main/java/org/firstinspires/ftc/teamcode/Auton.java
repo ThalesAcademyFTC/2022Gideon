@@ -30,7 +30,11 @@ public class Auton extends LinearOpMode {
 
         robot.moveLeftFT(2000);
         robot.moveRightFT(2000);
-
+        if(gamepad2.left_trigger > 0.5){
+            robot.servo1.setPosition(0.1);
+        } else if(gamepad2.right_trigger > 0.5) {
+            robot.servo1.setPosition(1);
+        }
 
 
 
