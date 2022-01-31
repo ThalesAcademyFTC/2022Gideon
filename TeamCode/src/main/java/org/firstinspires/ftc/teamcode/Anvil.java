@@ -335,20 +335,91 @@ public class Anvil {
             armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
-    public void moveCarouselFT(int ticks, double speed) {
+
+    int ticksToBottom = 1000;
+    int ticksToMiddle = 2500;
+
+    public void armBottomRaise(){
         this.rest();
-        for (DcMotor carouselMotor : front) {
-            carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            carouselMotor.setTargetPosition(ticks);
-            carouselMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
-        this.moveForward(speed);
-        while (ntarget(ticks, front[5])) {
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armMotor.setPower(0.5);
+        while (ntarget(ticksToBottom, armMotor)) {
             continue;
         }
-        for (DcMotor carouselMotor : forward) {
-            carouselMotor.setPower(5);
-            carouselMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        }
+
+        armMotor.setPower(0);
+
+        moveForwardFT(200, 0.2);
+
+        servoOpen();
+
+        moveBackwardFT(200, 0.2);
+
+        armReset();
     }
+
+    public void armMidddleRaise(){
+        this.rest();
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armMotor.setPower(0.5);
+        while (ntarget(ticksToMiddle, armMotor)) {
+            continue;
+        }
+        armMotor.setPower(0);
+
+        moveForwardFT(200, 0.2);
+
+        servoOpen();
+
+        moveBackwardFT(200, 0.2);
+
+        armReset();
+
+    }
+
+    public void armReset(){
+        this.rest();
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armMotor.setPower(-0.5);
+        while (ntarget(0, armMotor)) {
+            continue;
+        }
+        armMotor.setPower(0);
+    }
+
+    int ticksToDuck = 2000;
+
+    public void carouselMoveBlue(){
+        this.rest();
+        carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        carouselMotor.setPower(-0.1);
+        while (ntarget(-ticksToDuck, carouselMotor)) {
+            continue;
+        }
+        carouselMotor.setPower(0);
+    }
+
+    public void carouselMoveRed(){
+        this.rest();
+        carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        carouselMotor.setPower(0.1);
+        while (ntarget(ticksToDuck, carouselMotor)) {
+            continue;
+        }
+        carouselMotor.setPower(0);
+    }
+
+    public void servoClose(){
+        servo1.setPosition(0);
+    }
+
+    public void servoOpen(){
+        servo1.setPosition(1);
+    }
+
 }

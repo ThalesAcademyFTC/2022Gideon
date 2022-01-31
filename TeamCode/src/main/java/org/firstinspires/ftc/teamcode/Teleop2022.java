@@ -52,7 +52,6 @@ public class Teleop2022 extends OpMode {
                 double servoControl[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
                 double x = servoControl[i];
                 robot.servo1.setPosition(servoControl[i]);
-
             }
         } else robot.servo1.setPosition(1);
 
