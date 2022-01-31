@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous(name="RedBar", group="Template")
 //@Disabled
 
-public class LJ_Right_Back_Auton extends LinearOpMode {
+public class RedBar extends LinearOpMode {
     private Anvil robot;
     private ElapsedTime runtime = new ElapsedTime();
     @Override
