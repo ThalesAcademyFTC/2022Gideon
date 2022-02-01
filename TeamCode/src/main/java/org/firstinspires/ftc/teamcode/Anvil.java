@@ -343,39 +343,25 @@ public class Anvil {
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        armMotor.setPower(0.5);
         while (ntarget(ticksToBottom, armMotor)) {
+            armMotor.setPower(-0.5);
             continue;
         }
-
         armMotor.setPower(0);
-
-        moveForwardFT(200, 0.2);
-
-        servoOpen();
-
-        moveBackwardFT(200, 0.2);
-
-        armReset();
     }
+
+
 
     public void armMidddleRaise(){
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        armMotor.setPower(0.5);
         while (ntarget(ticksToMiddle, armMotor)) {
+            armMotor.setPower(-0.5);
+
             continue;
         }
         armMotor.setPower(0);
-
-        moveForwardFT(200, 0.2);
-
-        servoOpen();
-
-        moveBackwardFT(200, 0.2);
-
-        armReset();
 
     }
 
@@ -383,8 +369,20 @@ public class Anvil {
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        armMotor.setPower(-0.5);
-        while (ntarget(0, armMotor)) {
+        armMotor.setPower(0.5);
+        while (ntarget(ticksToBottom, armMotor)) {
+            continue;
+        }
+        armMotor.setPower(0);
+    }
+
+
+    public void armResetHigh(){
+        this.rest();
+        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        armMotor.setPower(0.5);
+        while (ntarget(ticksToMiddle, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
