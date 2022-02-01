@@ -65,10 +65,10 @@ public class RedBar extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(1860, 0.5);
+        robot.turnRightFT(1820, 0.5);
         sleep(200);
         //move out of back area
-        robot.moveForwardFT(ticksCm*140, 1);
+        robot.moveForwardFT(ticksCm*160, 1);
         sleep(200);
         //turn all the way toward shipping container
         robot.turnRightFT(1240, 1);
