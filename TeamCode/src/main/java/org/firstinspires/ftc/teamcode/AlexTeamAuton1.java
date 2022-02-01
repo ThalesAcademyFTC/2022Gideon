@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="AlexTeamAuton1", group="Template")
+@Autonomous(name="BlueCornerAuton", group="Template")
 //@Disabled
 
 public class AlexTeamAuton1 extends LinearOpMode {
@@ -26,15 +26,15 @@ public class AlexTeamAuton1 extends LinearOpMode {
 
         robot.moveForwardFT(t*30, 0.5);
         sleep(500);
-        robot.turnLeftFT(1700, 1);
+        robot.turnLeftFT(5000, 0.5);
         sleep(500);
         robot.moveForwardFT(t*55, 0.5);
         sleep(500);
-        robot.turnRightFT(1700,1);
+        robot.turnRightFT(5000,0.5);
         sleep(500);
         robot.moveForwardFT(t*95, 0.5);
         sleep(500);
-        robot.turnRightFT(1700,1);
+        robot.turnRightFT(5000, 0.5);
         sleep(500);
         robot.moveForwardFT(t*20, 0.5);
         sleep(500);
