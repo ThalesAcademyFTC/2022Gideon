@@ -21,7 +21,7 @@ public class SpencerAuton extends LinearOpMode {
         telemetry.update();
 
         int tcm = 20;
-        int turn = 1024;
+        int turn = 1240;
         //turn*1 equals 45 degrees, turn*2 equals 90 degrees
 
         //Code Above the waitForStart() is where you define variables or initialize any Vuforia
