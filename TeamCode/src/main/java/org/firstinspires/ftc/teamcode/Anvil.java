@@ -343,11 +343,12 @@ public class Anvil {
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        while (ntarget(ticksToBottom, armMotor)) {
-            armMotor.setPower(-0.5);
+        armMotor.setPower(-0.5);
+        while (ntarget(-ticksToBottom, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
+        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
 
@@ -356,12 +357,12 @@ public class Anvil {
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        while (ntarget(ticksToMiddle, armMotor)) {
-            armMotor.setPower(-0.5);
-
+        armMotor.setPower(-0.5);
+        while (ntarget(-ticksToMiddle, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
+        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
 
@@ -370,10 +371,11 @@ public class Anvil {
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         armMotor.setPower(0.5);
-        while (ntarget(ticksToBottom, armMotor)) {
+        while (ntarget(0, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
+        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
 
