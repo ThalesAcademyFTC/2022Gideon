@@ -30,9 +30,8 @@ public class QuinnAuton2022 extends LinearOpMode {
         int d = 650;
         //d*1 equals 45 degrees, d*2 equals 90 degrees
 
-        robot.moveForwardFT(t*28,0.5);
+        robot.moveForwardFT(t*30,0.5);
 
-        //robot scans for the duck
 
         //the robot moves toward the shipping container
         robot.moveRightFT(t*60);
