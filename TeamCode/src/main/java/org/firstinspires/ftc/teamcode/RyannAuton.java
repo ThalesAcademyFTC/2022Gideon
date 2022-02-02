@@ -27,9 +27,15 @@ public class RyannAuton extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
 
-robot.moveBackwardFT(1000,0.5);
-
-
+robot.moveForwardFT(1000,0.5);
+        sleep(500);
+robot.turnLeftFT(1300,0.5);
+        sleep(500);
+robot.moveForwardFT(500,0.5);
+        sleep(500);
+robot.turnRightFT(1300, 0.5);
+        sleep(500);
+        robot.moveForwardFT(500,0.5);
 
 
 
