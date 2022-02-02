@@ -30,7 +30,7 @@ public class RedBar extends LinearOpMode {
 
         robot.moveLeftFT(ticksCm*75);
         sleep(200);
-        robot.moveForwardFT(ticksCm*50, 0.5);
+        robot.moveForwardFT(ticksCm*40, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
@@ -47,13 +47,13 @@ public class RedBar extends LinearOpMode {
 
         sleep(200);
         //turn towards back area
-        robot.turnRightFT(1740,0.5);
+        robot.turnRightFT(1300,0.5);
         sleep(200);
         //go over barrier
         robot.moveForwardFT(ticksCm*180, 1);
         sleep(200);
         //turn towards freight
-        robot.turnRightFT(620, 0.5);
+        robot.turnRightFT(650, 0.5);
         sleep(200);
 
         /*more arm things to pick up freight
@@ -63,13 +63,13 @@ public class RedBar extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(1820, 0.5);
+        robot.turnRightFT(1970, 0.5);
         sleep(200);
         //move out of back area
         robot.moveForwardFT(ticksCm*180, 1);
         sleep(200);
         //turn all the way toward shipping container
-        robot.turnRightFT(1240, 1);
+        robot.turnRightFT(1300, 1);
         sleep(200);
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*20, 0.5);
@@ -84,7 +84,7 @@ public class RedBar extends LinearOpMode {
 
         robot.moveBackwardFT(ticksCm*20, 1);
         sleep(200);
-        robot.turnRightFT(1240, 1);
+        robot.turnRightFT(1300, 1);
         sleep(200);
         robot.moveForwardFT(ticksCm*200, 1);
         sleep(200);
