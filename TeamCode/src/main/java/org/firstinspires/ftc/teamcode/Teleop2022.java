@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
 import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCaptureSequence;
 
 @TeleOp(name="Teleop2022", group="Template")
@@ -41,9 +40,9 @@ public class Teleop2022 extends OpMode {
 
         //spin the carousel
         if (gamepad2.right_bumper) {
-            robot.carouselMotor.setPower(0.25);
+            robot.carouselMotor.setPower(0.2);
         } else if (gamepad2.left_bumper) {
-            robot.carouselMotor.setPower(-0.25);
+            robot.carouselMotor.setPower(-0.2);
         } else robot.carouselMotor.setPower(0);
 
         //Open claw while holding right trigger on gamepad2
