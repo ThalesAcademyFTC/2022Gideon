@@ -28,11 +28,9 @@ public class RedBar extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
-        robot.moveForwardFT(ticksCm*28, 0.5);
+        robot.moveLeftFT(ticksCm*75);
         sleep(200);
-        robot.moveLeftFT(ticksCm*53);
-        sleep(200);
-        robot.moveForwardFT(ticksCm*6, 0.5);
+        robot.moveForwardFT(ticksCm*40, 0.5);
 
         /*sensor things to tell where to put freight on shipping containers
         if (robot.getRed() == 255 && robot.getGreen() == 255) {
@@ -49,13 +47,13 @@ public class RedBar extends LinearOpMode {
 
         sleep(200);
         //turn towards back area
-        robot.turnRightFT(1240,0.5);
+        robot.turnRightFT(1300,0.5);
         sleep(200);
         //go over barrier
         robot.moveForwardFT(ticksCm*180, 1);
         sleep(200);
         //turn towards freight
-        robot.turnRightFT(620, 0.5);
+        robot.turnRightFT(650, 0.5);
         sleep(200);
 
         /*more arm things to pick up freight
@@ -65,16 +63,16 @@ public class RedBar extends LinearOpMode {
         */
 
         //turn towards shipping container
-        robot.turnRightFT(1860, 0.5);
+        robot.turnRightFT(1970, 0.5);
         sleep(200);
         //move out of back area
-        robot.moveForwardFT(ticksCm*140, 1);
+        robot.moveForwardFT(ticksCm*180, 1);
         sleep(200);
         //turn all the way toward shipping container
-        robot.turnRightFT(1240, 1);
+        robot.turnRightFT(1300, 1);
         sleep(200);
         //move toward shipping container to put in freight
-        robot.moveForwardFT(ticksCm*28, 0.5);
+        robot.moveForwardFT(ticksCm*20, 0.5);
         sleep(200);
 
         /*even more arm things to put more freight in the shipping container
@@ -83,18 +81,20 @@ public class RedBar extends LinearOpMode {
         robot.moveArmFT();
         */
 
-        robot.moveBackwardFT(ticksCm*28, 1);
+
+        robot.moveBackwardFT(ticksCm*20, 1);
         sleep(200);
-        robot.turnRightFT(1240, 1);
+        robot.turnRightFT(1300, 1);
         sleep(200);
-        robot.moveForwardFT(ticksCm*130, 1);
+        robot.moveForwardFT(ticksCm*200, 1);
         sleep(200);
+
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
 
-
         }
 
     }
+
 }

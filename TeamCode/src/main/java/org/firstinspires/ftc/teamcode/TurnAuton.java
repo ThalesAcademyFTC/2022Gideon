@@ -3,15 +3,14 @@ package org.firstinspires.ftc.teamcode;
 import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="ryanAuton", group="Template")
-@Disabled
+@Autonomous(name="TurnAuton", group="Template")
+//@Disabled
 
-public class RyannAuton extends LinearOpMode {
+public class TurnAuton extends LinearOpMode {
     private Anvil robot;
     private ElapsedTime runtime = new ElapsedTime();
     @Override
@@ -26,20 +25,14 @@ public class RyannAuton extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
+       // robot.moveForwardFT(1000, 0.5);
 
-robot.moveForwardFT(1000,0.5);
-        sleep(500);
-robot.turnLeftFT(1300,0.5);
-        sleep(500);
-robot.moveForwardFT(500,0.5);
-        sleep(500);
-robot.turnRightFT(1300, 0.5);
-        sleep(500);
-        robot.moveForwardFT(500,0.5);
+       robot.turnRightFT(650, 0.5);
 
 
 
-        // Inside of the while statement below is any code that you want to run in loop during autonomous.
+
+        //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
 
 
