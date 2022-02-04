@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-
 @Autonomous(name="BlueBar", group="Template")
 //@Disabled
 
@@ -16,6 +15,7 @@ public class BlueBar extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
+        robot.armReset();
         robot = new Anvil(hardwareMap, MECHANUM, telemetry);
         telemetry.addData("Status", "Initialized");
         runtime.reset();
