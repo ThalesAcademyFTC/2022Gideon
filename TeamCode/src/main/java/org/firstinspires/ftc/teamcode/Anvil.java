@@ -423,6 +423,6 @@ public class Anvil {
         servo1.setPosition(1);
     }
 
-    public void servoPrepare(){servo1.setPosition(0.6);
+    public void servoPrepare(){servo1.setPosition(0.8);
     }
 }
