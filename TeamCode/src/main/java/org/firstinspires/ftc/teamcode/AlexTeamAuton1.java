@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="BlueCornerAuton", group="Template")
+@Autonomous(name="AlexTeamAuton1", group="Template")
 @Disabled
 
-public class BlueCornerAuton extends LinearOpMode {
+public class AlexTeamAuton1 extends LinearOpMode {
     private Anvil robot;
     private ElapsedTime runtime = new ElapsedTime();
     @Override
@@ -26,15 +26,15 @@ public class BlueCornerAuton extends LinearOpMode {
 
         robot.moveForwardFT(t*30, 0.5);
         sleep(500);
-        robot.turnRightFT(5000, 0.25);
+        robot.turnLeftFT(5000, 0.25);
         sleep(500);
         robot.moveForwardFT(t*55, 0.5);
         sleep(500);
-        robot.turnLeftFT(5000,0.25);
+        robot.turnRightFT(5000,0.25);
         sleep(500);
         robot.moveForwardFT(t*95, 0.5);
         sleep(500);
-        robot.turnLeftFT(5000, 0.25);
+        robot.turnRightFT(5000, 0.25);
         sleep(500);
         robot.moveForwardFT(t*20, 0.5);
         sleep(500);

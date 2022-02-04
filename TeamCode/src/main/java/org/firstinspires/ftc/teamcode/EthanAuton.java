@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="EthanAuton", group="Template")
-//@Disabled
+@Disabled
 
 public class EthanAuton extends LinearOpMode {
     private Anvil robot;

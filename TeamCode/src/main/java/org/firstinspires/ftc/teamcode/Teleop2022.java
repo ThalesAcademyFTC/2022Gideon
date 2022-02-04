@@ -9,14 +9,7 @@ import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCapt
 public class Teleop2022 extends OpMode {
 
     private Anvil robot;
-
-    public enum SpeedToggle {
-        Normal_Forward,
-        Slower_Forward
-    }
-
-    SpeedToggle mode = Teleop2022.SpeedToggle.Normal_Forward;
-
+    int speed = 1;
     @Override
     public void init() {
 
@@ -26,6 +19,8 @@ public class Teleop2022 extends OpMode {
     @Override
     public void loop() {
 
+        telemetry.addData("arm", robot.armMotor.getCurrentPosition());
+        telemetry.update();
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest() && gamepad2.atRest()) robot.rest();
@@ -37,6 +32,15 @@ public class Teleop2022 extends OpMode {
         } else if (gamepad2.dpad_up) {
             robot.armMotor.setPower(-0.6);
         } else robot.armMotor.setPower(0);
+
+        //move arm to set positions
+        if (gamepad2.y) {
+            robot.armMiddleRaise();
+        } else if (gamepad2.x) {
+            robot.armBottomRaise();
+        } else if (gamepad2.a) {
+            robot.armReset();
+        }
 
         //spin the carousel
         if (gamepad2.right_bumper) {
@@ -55,26 +59,21 @@ public class Teleop2022 extends OpMode {
         } else robot.servo1.setPosition(1);
 
         //change from normal to slow speed and vice versa
-        if (gamepad1.y) {
-            if (mode == Teleop2022.SpeedToggle.Normal_Forward) {
-                mode = SpeedToggle.Slower_Forward;
-            } else {
-                mode = Teleop2022.SpeedToggle.Normal_Forward;
-            }
+        if (gamepad1.x) {
+            speed = 1;
+        } else if (gamepad1.a) {
+            speed = 2;
         }
 
-        //rotate left and right
 
         //move forward, back, left, right
-        switch (mode){
-            case Normal_Forward:
                 if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.5) {
-                    robot.moveDiagonal(-gamepad1.left_stick_x, -gamepad1.left_stick_y, 1);
+                    robot.moveDiagonal(-gamepad1.left_stick_x, -gamepad1.left_stick_y, speed);
                 } else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
-                    robot.moveRight(gamepad1.left_stick_x);
+                    robot.moveRight(gamepad1.left_stick_x/speed);
                 } else if (Math.abs(gamepad1.right_stick_x) > Math.abs(gamepad1.right_stick_y)) {
-                    robot.turnRight(gamepad1.right_stick_x);
-                } else robot.moveBackward(gamepad1.left_stick_y);
+                    robot.turnRight(gamepad1.right_stick_x/speed);
+                } else robot.moveBackward(gamepad1.left_stick_y/speed);
 
               /*    else if (gamepad1.left_stick_x >= 0.2){
                     robot.moveRight(gamepad1.left_stick_x);
@@ -108,9 +107,6 @@ public class Teleop2022 extends OpMode {
                 } else if (gamepad1.left_stick_y < -0.2){
                     robot.moveBackward(-gamepad1.left_stick_y / 2);
                 } */
-
-                }
             }
 
         }
-

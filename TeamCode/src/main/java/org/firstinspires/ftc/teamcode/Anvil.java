@@ -136,6 +136,7 @@ public class Anvil {
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
+                armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                 forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};
@@ -336,8 +337,8 @@ public class Anvil {
         }
     }
 
-    int ticksToBottom = 1000;
-    int ticksToMiddle = 2500;
+    int ticksToBottom = 400;
+    int ticksToMiddle = 1100;
 
     public void armBottomRaise(){
         this.rest();
@@ -353,7 +354,7 @@ public class Anvil {
 
 
 
-    public void armMidddleRaise(){
+    public void armMiddleRaise(){
         this.rest();
         armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -363,7 +364,6 @@ public class Anvil {
         }
         armMotor.setPower(0);
         armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
     }
 
     public void armReset(){
@@ -390,13 +390,13 @@ public class Anvil {
         armMotor.setPower(0);
     }
 
-    int ticksToDuck = 2000;
+    int ticksToDuck = 1250;
 
     public void carouselMoveBlue(){
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(-0.1);
+        carouselMotor.setPower(0.1);
         while (ntarget(-ticksToDuck, carouselMotor)) {
             continue;
         }
@@ -407,7 +407,7 @@ public class Anvil {
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(0.1);
+        carouselMotor.setPower(-0.1);
         while (ntarget(ticksToDuck, carouselMotor)) {
             continue;
         }
@@ -419,7 +419,9 @@ public class Anvil {
     }
 
     public void servoOpen(){
-        servo1.setPosition(1);
+        servo1.setPosition(0.9);
     }
 
+    public void servoPrepare(){servo1.setPosition(0.6);
+    }
 }
