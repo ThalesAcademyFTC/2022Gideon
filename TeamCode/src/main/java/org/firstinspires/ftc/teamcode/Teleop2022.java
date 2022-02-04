@@ -35,9 +35,7 @@ public class Teleop2022 extends OpMode {
         } else robot.armMotor.setPower(0);
 
         //move arm to set positions
-        if (gamepad2.x) {
-            robot.servoPrepare();
-        }
+
 
         //spin the carousel
         if (gamepad2.right_bumper) {
@@ -49,13 +47,11 @@ public class Teleop2022 extends OpMode {
         //Open claw while holding right trigger on gamepad2
         if (gamepad2.right_trigger > 0.5) {
             robot.servoClose();
-        } else robot.servoOpen();
+        } else robot.servoPrepare();
 
         //change from normal to slow speed and vice versa
         if (gamepad1.x) {
             speed = 1;
-        } else if (gamepad1.a) {
-            speed = 2;
         }
 
 
