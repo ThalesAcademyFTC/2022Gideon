@@ -29,7 +29,7 @@ public class TurnAuton extends LinearOpMode {
 
        robot.armBottomRaise();
        robot.armReset();
-       robot.armMidddleRaise();
+       robot.armMiddleRaise();
        robot.armReset();
 
 
