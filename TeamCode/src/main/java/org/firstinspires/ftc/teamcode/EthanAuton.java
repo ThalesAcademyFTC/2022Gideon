@@ -28,14 +28,16 @@ public class EthanAuton extends LinearOpMode {
         int ticksPerCm = 20;
 
 
-
-
+        //This auton is for the blue corner.
+        //The robot scans the duck.
         robot.moveForwardFT(ticksPerCm*28, 0.5);
         sleep(500);
+
         robot.moveBackwardFT(ticksPerCm*28, 0.5);
         sleep(500);
         robot.moveRightFT(ticksPerCm*49);
         sleep(500);
+        robot.carouselMoveBlue(ticksPerCm*50);
         robot.moveForwardFT(ticksPerCm*118, 0.5);
         sleep(500);
         robot.turnLeftFT(1150,0.5);
