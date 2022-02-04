@@ -30,20 +30,19 @@ public class RedBar extends LinearOpMode {
 
         robot.moveLeftFT(ticksCm*75);
         sleep(200);
-        robot.moveForwardFT(ticksCm*40, 0.5);
+        robot.moveForwardFT(ticksCm*30, 0.5);
 
-        /*sensor things to tell where to put freight on shipping containers
-        if (robot.getRed() == 255 && robot.getGreen() == 255) {
-            //duck-related code
-
-
-            //arm things to put freight on shipping container
-            robot.moveArmFT();
-            robot.crservo1();
-        }
-        else //something related to re-scanning
-        */
-
+        //arm raise to put freight on container
+        robot.armMiddleRaise();
+        sleep(200);
+        robot.moveForwardFT(ticksCm*10, 0.5);
+        sleep(200);
+        //servo things to let go of freight
+        robot.servoOpen();
+        sleep(300);
+        robot.moveBackwardFT(ticksCm*10, 0.5);
+        sleep(200);
+        robot.servoClose();
 
         sleep(200);
         //turn towards back area
@@ -56,11 +55,12 @@ public class RedBar extends LinearOpMode {
         robot.turnRightFT(650, 0.5);
         sleep(200);
 
-        /*more arm things to pick up freight
-        robot.moveArmFT();
-        robot.crservo1();
-        robot.moveArmFT();
-        */
+        //more arm things to pick up freight
+        robot.servoOpen();
+        sleep(200);
+        robot.armReset();
+        sleep(200);
+        robot.servoClose();
 
         //turn towards shipping container
         robot.turnRightFT(1970, 0.5);
@@ -74,21 +74,21 @@ public class RedBar extends LinearOpMode {
         //move toward shipping container to put in freight
         robot.moveForwardFT(ticksCm*20, 0.5);
         sleep(200);
-
-        /*even more arm things to put more freight in the shipping container
-        robot.moveArmFT();
-        robot.crservo1();
-        robot.moveArmFT();
-        */
-
-
+        
+        //even more arm things to put more freight in the shipping container
+        robot.armMiddleRaise();
+        sleep(200);
+        robot.servoOpen();
+        sleep(200);
         robot.moveBackwardFT(ticksCm*20, 1);
+        sleep(200);
+        robot.servoClose();
+
         sleep(200);
         robot.turnRightFT(1300, 1);
         sleep(200);
         robot.moveForwardFT(ticksCm*200, 1);
         sleep(200);
-
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
