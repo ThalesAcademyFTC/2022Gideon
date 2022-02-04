@@ -30,6 +30,7 @@ public class QuinnAuton2022 extends LinearOpMode {
         int d = 650;
         //d*1 equals 45 degrees, d*2 equals 90 degrees
 
+        robot.servoPrepare();
         robot.moveForwardFT(t*30,0.5);
         sleep(500);
 
@@ -103,6 +104,7 @@ public class QuinnAuton2022 extends LinearOpMode {
         sleep(100);
 
         //robot stops moving and parks
+        robot.rest();
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
