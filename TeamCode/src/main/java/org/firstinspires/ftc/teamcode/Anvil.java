@@ -136,6 +136,7 @@ public class Anvil {
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
+                armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                 forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};

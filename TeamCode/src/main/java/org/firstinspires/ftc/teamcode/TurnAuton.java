@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="TurnAuton", group="Template")
+@Autonomous(name="ArmTestAuton", group="Template")
 //@Disabled
 
 public class TurnAuton extends LinearOpMode {
@@ -27,7 +27,10 @@ public class TurnAuton extends LinearOpMode {
 
        // robot.moveForwardFT(1000, 0.5);
 
-       robot.turnRightFT(650, 0.5);
+       robot.armBottomRaise();
+       robot.armReset();
+       robot.armMidddleRaise();
+       robot.armReset();
 
 
 

@@ -25,7 +25,8 @@ public class Teleop2022 extends OpMode {
     }
     @Override
     public void loop() {
-
+        telemetry.addData("arm", robot.armMotor.getCurrentPosition());
+        telemetry.update();
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
         if (gamepad1.atRest() && gamepad2.atRest()) robot.rest();
