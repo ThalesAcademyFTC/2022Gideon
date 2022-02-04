@@ -364,7 +364,6 @@ public class Anvil {
         }
         armMotor.setPower(0);
         armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
     }
 
     public void armReset(){

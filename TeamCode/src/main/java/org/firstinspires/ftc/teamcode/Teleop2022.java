@@ -10,13 +10,6 @@ public class Teleop2022 extends OpMode {
 
     private Anvil robot;
 
-    public enum SpeedToggle {
-        Normal_Forward,
-        Slower_Forward
-    }
-
-    SpeedToggle mode = Teleop2022.SpeedToggle.Normal_Forward;
-
     @Override
     public void init() {
 
@@ -57,18 +50,12 @@ public class Teleop2022 extends OpMode {
 
         //change from normal to slow speed and vice versa
         if (gamepad1.y) {
-            if (mode == Teleop2022.SpeedToggle.Normal_Forward) {
-                mode = SpeedToggle.Slower_Forward;
-            } else {
-                mode = Teleop2022.SpeedToggle.Normal_Forward;
-            }
+
         }
 
         //rotate left and right
 
         //move forward, back, left, right
-        switch (mode){
-            case Normal_Forward:
                 if (Math.abs(gamepad1.left_stick_x) + Math.abs(gamepad1.left_stick_y) > 1.5) {
                     robot.moveDiagonal(-gamepad1.left_stick_x, -gamepad1.left_stick_y, 1);
                 } else if (Math.abs(gamepad1.left_stick_x) > Math.abs(gamepad1.left_stick_y)) {
@@ -109,8 +96,6 @@ public class Teleop2022 extends OpMode {
                 } else if (gamepad1.left_stick_y < -0.2){
                     robot.moveBackward(-gamepad1.left_stick_y / 2);
                 } */
-
-                }
             }
 
         }
