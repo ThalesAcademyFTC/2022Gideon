@@ -29,27 +29,28 @@ public class EthanAuton extends LinearOpMode {
 
 
         //This auton is for the blue corner.
-        //The robot scans the duck.
+        robot.servoPrepare();
         robot.moveForwardFT(ticksPerCm*28, 0.5);
         sleep(500);
+        robot.turnLeftFT(ticksPerCm*1300, 0.5 );
+        robot.armMiddleRaise();
+        robot.servoOpen();
+        robot.turnRightFT(ticksPerCm*1300, 0.5);
+        sleep(500);
 
+        //This action will move the robot to the carousel and spin it.
         robot.moveBackwardFT(ticksPerCm*28, 0.5);
         sleep(500);
         robot.moveRightFT(ticksPerCm*49);
         sleep(500);
-        robot.carouselMoveBlue(ticksPerCm*50);
-        robot.moveForwardFT(ticksPerCm*118, 0.5);
+        robot.carouselMoveBlue();
         sleep(500);
-        robot.turnLeftFT(1150,0.5);
-        sleep(500);
-        robot.moveForwardFT(ticksPerCm*46,0.5);
-        sleep(500);
-        robot.moveArmFT(500,0.5);
-        sleep(500);
-        robot.moveBackwardFT(ticksPerCm*98, 0.5);
-        sleep(500);
-        robot.moveLeftFT(ticksPerCm*120);
-        sleep(500);
+
+        //This action moves the robot to the shipping hub and parks
+        robot.moveLeftFT(ticksPerCm*10000);
+        sleep(100000);
+
+
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
