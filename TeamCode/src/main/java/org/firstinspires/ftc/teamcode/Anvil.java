@@ -302,9 +302,9 @@ public class Anvil {
         while (ntarget(ticks, front[0])) {
             continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor carouselMotor : forward) {
+            carouselMotor.setPower(0);
+            carouselMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
     public void moveBackwardFT(int ticks, double speed) {
@@ -316,9 +316,9 @@ public class Anvil {
         while (ntarget(-ticks, front[0])) {
             continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor armMotor : forward) {
+            armMotor.setPower(0);
+            armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
     public void moveArmFT(int ticks, double speed) {
