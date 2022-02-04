@@ -137,6 +137,7 @@ public class Anvil {
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
                 armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
                 forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};
@@ -415,11 +416,11 @@ public class Anvil {
     }
 
     public void servoClose(){
-        servo1.setPosition(0);
+        servo1.setPosition(0.5);
     }
 
     public void servoOpen(){
-        servo1.setPosition(0.9);
+        servo1.setPosition(1);
     }
 
     public void servoPrepare(){servo1.setPosition(0.6);

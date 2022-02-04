@@ -20,6 +20,7 @@ public class Teleop2022 extends OpMode {
     public void loop() {
 
         telemetry.addData("arm", robot.armMotor.getCurrentPosition());
+        telemetry.addData("servo", robot.servo1.getPosition());
         telemetry.update();
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
@@ -34,12 +35,8 @@ public class Teleop2022 extends OpMode {
         } else robot.armMotor.setPower(0);
 
         //move arm to set positions
-        if (gamepad2.y) {
-            robot.armMiddleRaise();
-        } else if (gamepad2.x) {
-            robot.armBottomRaise();
-        } else if (gamepad2.a) {
-            robot.armReset();
+        if (gamepad2.x) {
+            robot.servoPrepare();
         }
 
         //spin the carousel
@@ -51,12 +48,8 @@ public class Teleop2022 extends OpMode {
 
         //Open claw while holding right trigger on gamepad2
         if (gamepad2.right_trigger > 0.5) {
-            for(int i=0; i<gamepad2.right_trigger; i++) {
-                double servoControl[] = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-                double x = servoControl[i];
-                robot.servo1.setPosition(servoControl[i]);
-            }
-        } else robot.servo1.setPosition(1);
+            robot.servoClose();
+        } else robot.servoOpen();
 
         //change from normal to slow speed and vice versa
         if (gamepad1.x) {

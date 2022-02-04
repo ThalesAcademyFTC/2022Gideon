@@ -28,6 +28,13 @@ public class RedBar extends LinearOpMode {
         waitForStart(); //Below this point is where you place the linear code for your autonomous.
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
+        //grabs the block
+        robot.armBottomRaise();
+        robot.servoPrepare();
+        robot.armReset();
+        robot.servoClose();
+
+
         robot.moveLeftFT(ticksCm*75);
         sleep(200);
         robot.moveForwardFT(ticksCm*30, 0.5);
