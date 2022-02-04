@@ -35,23 +35,20 @@ public class RedBar extends LinearOpMode {
         robot.servoClose();
 
 
-        robot.moveLeftFT(ticksCm*75);
+        robot.moveForwardFT(ticksCm*105, 0.5);
         sleep(200);
-        robot.moveForwardFT(ticksCm*30, 0.5);
 
         //arm raise to put freight on container
         robot.armMiddleRaise();
         sleep(200);
-        robot.moveForwardFT(ticksCm*10, 0.5);
+        robot.moveForwardFT(ticksCm*5, 0.5);
         sleep(200);
         //servo things to let go of freight
-        robot.servoOpen();
+        robot.servoPrepare();
         sleep(300);
-        robot.moveBackwardFT(ticksCm*10, 0.5);
+        robot.moveBackwardFT(ticksCm*5, 0.5);
         sleep(200);
-        robot.servoClose();
 
-        sleep(200);
         //turn towards back area
         robot.turnRightFT(1300,0.5);
         sleep(200);
@@ -59,6 +56,7 @@ public class RedBar extends LinearOpMode {
         robot.moveForwardFT(ticksCm*180, 1);
         sleep(200);
         //turn towards freight
+        /*
         robot.turnRightFT(650, 0.5);
         sleep(200);
 
@@ -97,7 +95,7 @@ public class RedBar extends LinearOpMode {
         sleep(200);
         robot.moveForwardFT(ticksCm*200, 1);
         sleep(200);
-
+        */
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
 

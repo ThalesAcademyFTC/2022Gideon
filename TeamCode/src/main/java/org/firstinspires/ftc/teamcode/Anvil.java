@@ -398,7 +398,7 @@ public class Anvil {
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(0.1);
-        while (ntarget(-ticksToDuck, carouselMotor)) {
+        while (ntarget(ticksToDuck, carouselMotor)) {
             continue;
         }
         carouselMotor.setPower(0);
@@ -409,7 +409,7 @@ public class Anvil {
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(-0.1);
-        while (ntarget(ticksToDuck, carouselMotor)) {
+        while (ntarget(-ticksToDuck, carouselMotor)) {
             continue;
         }
         carouselMotor.setPower(0);
