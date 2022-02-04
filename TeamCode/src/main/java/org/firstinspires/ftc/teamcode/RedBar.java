@@ -63,11 +63,14 @@ public class RedBar extends LinearOpMode {
         sleep(200);
 
         //more arm things to pick up freight
-        robot.servoOpen();
-        sleep(200);
         robot.armReset();
         sleep(200);
+        robot.servoPrepare();
+        sleep(200);
         robot.servoClose();
+        sleep(200);
+        robot.armMiddleRaise();
+        sleep(200);
 
         //turn towards shipping container
         robot.turnRightFT(1970, 0.5);
@@ -83,8 +86,6 @@ public class RedBar extends LinearOpMode {
         sleep(200);
         
         //even more arm things to put more freight in the shipping container
-        robot.armMiddleRaise();
-        sleep(200);
         robot.servoOpen();
         sleep(200);
         robot.moveBackwardFT(ticksCm*20, 1);

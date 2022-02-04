@@ -56,9 +56,9 @@ public class BlueBar extends LinearOpMode {
         sleep(200);
 
         //more arm things to pick up freight
-        robot.servoOpen();
-        sleep(200);
         robot.armReset();
+        sleep(200);
+
         sleep(200);
         robot.servoClose();
 
