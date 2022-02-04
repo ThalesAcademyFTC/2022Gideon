@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCapt
 public class Teleop2022 extends OpMode {
 
     private Anvil robot;
-
+    int speed = 1;
     @Override
     public void init() {
 
@@ -18,7 +18,7 @@ public class Teleop2022 extends OpMode {
     }
     @Override
     public void loop() {
-        int speed = 1;
+
         telemetry.addData("arm", robot.armMotor.getCurrentPosition());
         telemetry.update();
         //MOVEMENT

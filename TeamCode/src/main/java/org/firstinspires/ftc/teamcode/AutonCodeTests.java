@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="AutonCodeTests", group="Template")
-//@Disabled
+@Disabled
 
 public class AutonCodeTests extends LinearOpMode {
     private Anvil robot;

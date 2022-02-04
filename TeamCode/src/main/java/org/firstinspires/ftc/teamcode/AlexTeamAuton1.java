@@ -1,14 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
-
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="AlexTeamAuton1", group="Template")
-//@Disabled
+@Disabled
 
 public class AlexTeamAuton1 extends LinearOpMode {
     private Anvil robot;

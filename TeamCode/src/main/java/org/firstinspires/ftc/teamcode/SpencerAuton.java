@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="SpencerAuton", group="Template")
+@Autonomous(name="RedCorner", group="Template")
 
 public class SpencerAuton extends LinearOpMode {
 

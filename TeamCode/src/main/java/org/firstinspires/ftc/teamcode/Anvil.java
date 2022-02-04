@@ -419,7 +419,9 @@ public class Anvil {
     }
 
     public void servoOpen(){
-        servo1.setPosition(1);
+        servo1.setPosition(0.9);
     }
 
+    public void servoPrepare(){servo1.setPosition(0.6);
+    }
 }
