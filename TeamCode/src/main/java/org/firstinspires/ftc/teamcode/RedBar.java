@@ -28,19 +28,20 @@ public class RedBar extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
         //grabs the block
+        /*
         robot.armBottomRaise();
         robot.servoPrepare();
         robot.armReset();
         sleep(100);
         robot.servoClose();
-
         robot.moveLeftFT(ticksCm*60);
-        robot.moveForwardFT(ticksCm*105, 0.5);
-        sleep(200);
 
-        //arm raise to put freight on container
-        robot.armMiddleRaise();
+         */
+        robot.moveForwardFT(ticksCm*80, 0.5);
         sleep(200);
+        //arm raise to put freight on container
+       //robot.armMiddleRaise();
+       /* sleep(200);
         robot.moveForwardFT(ticksCm*5, 0.5);
         sleep(200);
         //servo things to let go of freight
@@ -48,13 +49,13 @@ public class RedBar extends LinearOpMode {
         sleep(300);
         robot.moveBackwardFT(ticksCm*5, 0.5);
         sleep(200);
-
+*/
         //turn towards back area
         robot.turnRightFT(1300,0.5);
         sleep(200);
         //go over barrier
         robot.moveForwardFT(ticksCm*180, 1);
-        sleep(200);
+
         //turn towards freight
         /*
         robot.turnRightFT(650, 0.5);
