@@ -33,7 +33,7 @@ public class RedBar extends LinearOpMode {
         robot.armReset();
         robot.servoClose();
 
-
+        robot.moveLeftFT(ticksCm*60);
         robot.moveForwardFT(ticksCm*105, 0.5);
         sleep(200);
 
