@@ -37,7 +37,7 @@ public class RedBar extends LinearOpMode {
         robot.moveLeftFT(ticksCm*60);
 
          */
-        robot.moveForwardFT(ticksCm*80, 0.5);
+        robot.moveForwardFT(ticksCm*60, 0.5);
         sleep(200);
         //arm raise to put freight on container
        //robot.armMiddleRaise();

@@ -45,7 +45,7 @@ public class RedCornerAuton extends LinearOpMode {
         sleep(500);
         robot.carouselMoveRed();
         sleep(200);
-        robot.moveForwardFT(t*60, 0.5);
+        robot.moveForwardFT(t*34, 0.5);
 
        /* sleep(500);
         robot.turnRightFT(1345,0.5);

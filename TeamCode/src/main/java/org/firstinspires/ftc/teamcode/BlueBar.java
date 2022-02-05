@@ -15,7 +15,6 @@ public class BlueBar extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
-        robot.armReset();
         robot = new Anvil(hardwareMap, MECHANUM, telemetry);
         telemetry.addData("Status", "Initialized");
         runtime.reset();
@@ -39,7 +38,7 @@ public class BlueBar extends LinearOpMode {
         robot.moveRightFT(ticksCm*60);
 
          */
-        robot.moveForwardFT(ticksCm*80, 0.5);
+        robot.moveForwardFT(ticksCm*60, 0.5);
         sleep(200);
         //arm raise to put freight on container
         //robot.armMiddleRaise();
