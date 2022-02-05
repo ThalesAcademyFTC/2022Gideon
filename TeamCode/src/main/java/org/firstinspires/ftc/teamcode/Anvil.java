@@ -391,13 +391,13 @@ public class Anvil {
         armMotor.setPower(0);
     }
 
-    int ticksToDuck = 1250;
+    int ticksToDuck = 2000;
 
     public void carouselMoveBlue(){
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(0.1);
+        carouselMotor.setPower(0.2);
         while (ntarget(ticksToDuck, carouselMotor)) {
             continue;
         }
@@ -408,7 +408,7 @@ public class Anvil {
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(-0.1);
+        carouselMotor.setPower(-0.2);
         while (ntarget(-ticksToDuck, carouselMotor)) {
             continue;
         }
