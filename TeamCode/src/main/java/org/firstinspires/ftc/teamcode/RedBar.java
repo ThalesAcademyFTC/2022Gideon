@@ -31,6 +31,7 @@ public class RedBar extends LinearOpMode {
         robot.armBottomRaise();
         robot.servoPrepare();
         robot.armReset();
+        sleep(100);
         robot.servoClose();
 
 

@@ -364,13 +364,13 @@ public class Anvil {
     public void armReset(){
         this.rest();
         armMotor.setPower(0.5);
-        while (ntarget(-200, armMotor)) {
+        while (ntarget(800, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
     }
 
-    int ticksToDuck = 2500;
+    int ticksToDuck = 3000;
 
     public void carouselMoveBlue(){
         this.rest();
