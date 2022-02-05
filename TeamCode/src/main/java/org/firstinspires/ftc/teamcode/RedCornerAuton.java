@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="RedCornerAuton", group="Template")
-@Disabled
+@Autonomous(name="RedCorner", group="Template")
+//@Disabled
 
 public class RedCornerAuton extends LinearOpMode {
     private Anvil robot;
@@ -37,10 +37,7 @@ public class RedCornerAuton extends LinearOpMode {
         sleep(500);
         robot.carouselMoveRed();
         sleep(200);
-        robot.turnRightFT(650,0.5);
-        sleep(500);
-        robot.turnLeftFT(650,0.5);
-        sleep(500);
+        robot.moveBackwardFT(80,0.5);
 /*
         robot.moveForwardFT(t*20, 0.5);
         sleep(500);
