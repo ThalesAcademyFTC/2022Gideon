@@ -339,7 +339,7 @@ public class Anvil {
     }
 
     int ticksToBottom = 200;
-    int ticksToMiddle = 700;
+    int ticksToMiddle = 400;
 
     public void armBottomRaise(){
         this.rest();
@@ -364,7 +364,7 @@ public class Anvil {
     public void armReset(){
         this.rest();
         armMotor.setPower(0.5);
-        while (ntarget(800, armMotor)) {
+        while (ntarget(500, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
