@@ -25,7 +25,11 @@ public class RedCornerAuton extends LinearOpMode {
         int t = 20;
 
         robot.armBottomRaise();
+        robot.servoPrepare();
         robot.armReset();
+        sleep(200);
+        robot.servoClose();
+
         sleep(200);
         robot.servoPrepare();
         sleep(500);
