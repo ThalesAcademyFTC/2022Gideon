@@ -38,7 +38,7 @@ public class BlueCornerAuton extends LinearOpMode {
         sleep(200);
         robot.moveRightFT(55*t);
         sleep(500);
-        robot.moveBackward(t*9);
+        robot.moveBackwardFT(t*6,0.5);
 
 
 
