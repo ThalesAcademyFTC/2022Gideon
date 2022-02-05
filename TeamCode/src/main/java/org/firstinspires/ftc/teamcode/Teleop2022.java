@@ -39,10 +39,12 @@ public class Teleop2022 extends OpMode {
 
         //spin the carousel
         if (gamepad2.right_bumper) {
-            robot.carouselMotor.setPower(0.3);
+            robot.carouselMotor.setPower(0.35);
         } else if (gamepad2.left_bumper) {
-            robot.carouselMotor.setPower(-0.3);
+            robot.carouselMotor.setPower(-0.35);
         } else robot.carouselMotor.setPower(0);
+
+
 
         //Open claw while holding right trigger on gamepad2
         if (gamepad2.right_trigger > 0.5) {

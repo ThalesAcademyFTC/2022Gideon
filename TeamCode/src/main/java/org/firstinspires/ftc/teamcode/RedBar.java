@@ -52,9 +52,14 @@ public class RedBar extends LinearOpMode {
 */
         //turn towards back area
         robot.turnRightFT(1340,0.5);
-        sleep(200);
+        sleep(400);
         //go over barrier
         robot.moveForwardFT(ticksCm*160, 0.8);
+        sleep(500);
+        robot.turnRightFT(400,0.5);
+        sleep(200);
+        robot.moveForwardFT(3*ticksCm,0.5);
+
 
         //turn towards freight
         /*
