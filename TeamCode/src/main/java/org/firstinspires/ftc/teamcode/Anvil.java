@@ -338,8 +338,8 @@ public class Anvil {
         }
     }
 
-    int ticksToBottom = 400;
-    int ticksToMiddle = 1100;
+    int ticksToBottom = 100;
+    int ticksToMiddle = 500;
 
     public void armBottomRaise(){
         this.rest();
