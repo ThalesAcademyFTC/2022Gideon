@@ -38,7 +38,7 @@ public class BlueBar extends LinearOpMode {
         robot.moveRightFT(ticksCm*60);
 
          */
-        robot.moveForwardFT(ticksCm*60, 0.5);
+        robot.moveForwardFT(ticksCm*40, 0.5);
         sleep(200);
         //arm raise to put freight on container
         //robot.armMiddleRaise();
@@ -52,10 +52,12 @@ public class BlueBar extends LinearOpMode {
         sleep(200);
 */
         //turn towards back area
-        robot.turnLeftFT(1300,0.5);
+        robot.turnLeftFT(1000,0.5);
         sleep(200);
         //go over barrier
-        robot.moveForwardFT(ticksCm*180, 1);
+        robot.moveForwardFT(ticksCm*165, 0.8);
+        sleep(200);
+        robot.moveRightFT(10);
 
         //turn towards freight
         /*
