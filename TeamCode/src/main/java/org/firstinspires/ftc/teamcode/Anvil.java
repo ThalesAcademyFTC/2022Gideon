@@ -136,6 +136,7 @@ public class Anvil {
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
+                armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                 armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
                 forward = new DcMotor[]{motor1, motor2, motor3, motor4};
@@ -338,8 +339,8 @@ public class Anvil {
         }
     }
 
-    int ticksToBottom = 200;
-    int ticksToMiddle = 400;
+    int ticksToBottom = 400;
+    int ticksToMiddle = 700;
 
     public void armBottomRaise(){
         this.rest();
@@ -364,7 +365,7 @@ public class Anvil {
     public void armReset(){
         this.rest();
         armMotor.setPower(0.5);
-        while (ntarget(500, armMotor)) {
+        while (ntarget(400, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
@@ -395,7 +396,7 @@ public class Anvil {
     }
 
     public void servoClose(){
-        servo1.setPosition(0.5);
+        servo1.setPosition(0.6);
     }
 
     public void servoOpen(){

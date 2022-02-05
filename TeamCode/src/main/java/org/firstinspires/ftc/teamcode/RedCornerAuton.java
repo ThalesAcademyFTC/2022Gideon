@@ -28,12 +28,14 @@ public class RedCornerAuton extends LinearOpMode {
 
 
         robot.armBottomRaise();
+        sleep(200);
         robot.servoPrepare();
-
+        sleep(200);
         robot.armReset();
         sleep(200);
         robot.servoClose();
         sleep(300);
+        robot.armBottomRaise();
         robot.moveForwardFT(t*8, 0.5);
         sleep(500);
         robot.moveLeftFT(t*67);
@@ -42,7 +44,7 @@ public class RedCornerAuton extends LinearOpMode {
         robot.carouselMoveRed();
         sleep(200);
 
-        robot.moveForwardFT(t*87, 0.5);
+        robot.moveForwardFT(t*78, 0.5);
         sleep(500);
         robot.turnRightFT(1345,0.5);
         sleep(500);
@@ -50,9 +52,13 @@ public class RedCornerAuton extends LinearOpMode {
         sleep(500);
 
         robot.armMiddleRaise();
+        sleep(500);
 
-        robot.servoOpen();
-        robot.servoClose();
+        robot.servoPrepare();
+        sleep(500);
+        robot.moveBackwardFT(t*3,0.5);
+        sleep(500);
+
         robot.armReset();
 
         robot.moveBackwardFT(t*100,0.5);
@@ -60,7 +66,7 @@ public class RedCornerAuton extends LinearOpMode {
         robot.moveBackwardFT(t*20,0.5);
         sleep(500);
 
-        robot.moveRightFT(t*48);
+        robot.moveRightFT(t*49);
         sleep(500);
 
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
