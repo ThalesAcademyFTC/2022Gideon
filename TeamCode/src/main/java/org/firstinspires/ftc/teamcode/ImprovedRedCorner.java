@@ -54,7 +54,7 @@ import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "RedCorner", group = "Template")
+@TeleOp(name = "ImprovedRedCorner", group = "Template")
 //@Disabled
 public class ImprovedRedCorner extends LinearOpMode {
   /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
@@ -134,12 +134,61 @@ public class ImprovedRedCorner extends LinearOpMode {
         runtime.reset();
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
+
+        int t = 20;
         waitForStart();
 
-        //Auton goes herea
+        //Auton goes here
+        robot.armBottomRaise();
+        sleep(200);
+        robot.servoPrepare();
+        sleep(200);
+        robot.armReset();
+        sleep(200);
+        robot.servoClose();
+        sleep(500);
+        robot.armBottomRaise();
+        sleep(200);
 
+        robot.turnLeftFT(1340,0.5);
+        sleep(200);
+        //Camera stuff goes here
+        double duckLocation = 0;
+        robot.turnRightFT(1340, 0.5);
+        sleep(200);
 
+        robot.moveForwardFT(t*8, 0.5);
+        sleep(500);
+        robot.moveLeftFT(t*67);
+        sleep(500);
+        robot.moveBackwardFT(50,0.5);
+        robot.carouselMoveRed();
+        sleep(200);
 
+        robot.moveForwardFT(t*78, 0.5);
+        sleep(500);
+        robot.moveForwardFT(t*35,0.5);
+        sleep(500);
+        robot.turnRightFT(1345,0.5);
+        sleep(500);
+        robot.moveForwardFT(t*100, 0.5);
+        sleep(500);
+
+        robot.armMiddleRaise();
+        sleep(500);
+
+        robot.servoPrepare();
+        sleep(500);
+        robot.moveBackwardFT(t*3,0.5);
+        sleep(500);
+        robot.armReset();
+
+        robot.moveRightFT(t*25);
+        sleep(500);
+        robot.moveForwardFT(t*30,0.5);
+        sleep(500);
+        robot.moveForwardFT(t*170,1);
+        sleep(500);
 
 
 

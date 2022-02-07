@@ -19,7 +19,6 @@ public class RedCornerAuton extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         runtime.reset();
         telemetry.update();
-        int ticksCm = 20;
 
         double s = 0.5;
         int t = 20;
