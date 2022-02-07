@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="RyanTeleop", group="Template")
-//@Disabled
+@Disabled
 public class RyanTeleop extends OpMode {
 
     private Anvil robot;

@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="QuinAuton2022", group="Template")
-//@Disabled
+@Disabled
 
 public class QuinnAuton2022 extends LinearOpMode {
     private Anvil robot;
@@ -30,45 +30,81 @@ public class QuinnAuton2022 extends LinearOpMode {
         int d = 650;
         //d*1 equals 45 degrees, d*2 equals 90 degrees
 
-        robot.moveForwardFT(t*28,0.5);
-
-        //robot scans for the duck
+        robot.servoPrepare();
+        robot.moveForwardFT(t*30,0.5);
+        sleep(500);
 
         //the robot moves toward the shipping container
         robot.moveRightFT(t*60);
+        sleep(500);
         robot.moveForwardFT(t*45,0.5);
+        sleep(500);
 
-        //claw movement and arm movement goes here
+        //robot places block here
+        robot.armMiddleRaise();
+        sleep(50);
+        robot.moveForwardFT(t*3,0.5);
+        sleep(50);
+        robot.servoOpen();
+        sleep(50);
+        robot.servoClose();
+        sleep(50);
+        robot.moveBackwardFT(t*3,0.5);
+        robot.armReset();
+        sleep(50);
 
-        //robot turns toward the bars ad moves over them
+        //robot goes over the bars
         robot.moveBackwardFT(t*20,0.5);
+        sleep(50);
         robot.turnLeftFT(d*2, 0.5);
+        sleep(50);
         robot.moveForwardFT(t*200,1.0);
+        sleep(100);
 
-        //arm and claw movement here
+        //arm and claw movement
+        robot.servoClose();
 
         //robot waits for other robot to maybe move out of the way
         sleep(1000);
 
         //robot turns around and moves over the bars
         robot.turnRightFT(d*4,0.6);
+        sleep(100);
         robot.moveForwardFT(t*200,1.0);
+        sleep(100);
 
         //robot turns to the shipping container and moves to the container
         robot.turnLeftFT(d*2,0.5);
-        robot.moveForwardFT(t*20,0.5);
+        sleep(100);
+        robot.moveForwardFT(t*23,0.5);
+        sleep(100);
 
-        //more claw and arm movement here
+        //robot places hopefully another block here
+        robot.armMiddleRaise();
+        sleep(50);
+        robot.moveForwardFT(t*3,0.5);
+        sleep(50);
+        robot.servoOpen();
+        sleep(50);
+        robot.servoClose();
+        sleep(50);
+        robot.moveBackwardFT(t*3,0.5);
+        robot.armReset();
+        sleep(50);
 
         //waits for other robot to move
         sleep(1000);
 
-        //robot turns to the bars nd moves over them
+        //robot turns to the bars and moves over them
         robot.moveBackwardFT(t*20,0.5);
+        sleep(100);
         robot.turnLeftFT(d*2,0.5);
+        sleep(100);
         robot.moveForwardFT(t*200,1.0);
+        sleep(100);
 
         //robot stops moving and parks
+        robot.rest();
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.
         while (opModeIsActive() && runtime.milliseconds() < 30000) {

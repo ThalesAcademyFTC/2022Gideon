@@ -9,7 +9,7 @@ import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
 
 
 @Autonomous(name="TestAuton", group="Template")
-//@Disabled
+@Disabled
 
 public class Auton extends LinearOpMode {
     private Anvil robot;

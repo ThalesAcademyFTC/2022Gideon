@@ -136,6 +136,9 @@ public class Anvil {
                 motor2.setDirection(DcMotor.Direction.FORWARD);
                 motor3.setDirection(DcMotor.Direction.REVERSE);
                 motor4.setDirection(DcMotor.Direction.FORWARD);
+                armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
                 forward = new DcMotor[]{motor1, motor2, motor3, motor4};
                 left = new DcMotor[]{motor1, motor3};
                 right = new DcMotor[]{motor2, motor4};
@@ -300,9 +303,9 @@ public class Anvil {
         while (ntarget(ticks, front[0])) {
             continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor carouselMotor : forward) {
+            carouselMotor.setPower(0);
+            carouselMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
     public void moveBackwardFT(int ticks, double speed) {
@@ -314,9 +317,9 @@ public class Anvil {
         while (ntarget(-ticks, front[0])) {
             continue;
         }
-        for (DcMotor x : forward) {
-            x.setPower(0);
-            x.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        for (DcMotor armMotor : forward) {
+            armMotor.setPower(0);
+            armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
     public void moveArmFT(int ticks, double speed) {
@@ -336,68 +339,46 @@ public class Anvil {
         }
     }
 
-    int ticksToBottom = 1000;
-    int ticksToMiddle = 2500;
+    int ticksToBottom = 400;
+    int ticksToMiddle = 700;
 
     public void armBottomRaise(){
         this.rest();
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToBottom, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
-        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
 
 
-    public void armMidddleRaise(){
+    public void armMiddleRaise(){
         this.rest();
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToMiddle, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
-        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
     }
 
     public void armReset(){
         this.rest();
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         armMotor.setPower(0.5);
-        while (ntarget(0, armMotor)) {
-            continue;
-        }
-        armMotor.setPower(0);
-        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-    }
-
-
-    public void armResetHigh(){
-        this.rest();
-        armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        armMotor.setPower(0.5);
-        while (ntarget(ticksToMiddle, armMotor)) {
+        while (ntarget(400, armMotor)) {
             continue;
         }
         armMotor.setPower(0);
     }
 
-    int ticksToDuck = 2000;
+    int ticksToDuck = 3000;
 
     public void carouselMoveBlue(){
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(-0.1);
-        while (ntarget(-ticksToDuck, carouselMotor)) {
+        carouselMotor.setPower(0.25);
+        while (ntarget(ticksToDuck, carouselMotor)) {
             continue;
         }
         carouselMotor.setPower(0);
@@ -407,19 +388,21 @@ public class Anvil {
         this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(0.1);
-        while (ntarget(ticksToDuck, carouselMotor)) {
+        carouselMotor.setPower(-0.25);
+        while (ntarget(-ticksToDuck, carouselMotor)) {
             continue;
         }
         carouselMotor.setPower(0);
     }
 
     public void servoClose(){
-        servo1.setPosition(0);
+        servo1.setPosition(0.6);
     }
 
     public void servoOpen(){
         servo1.setPosition(1);
     }
 
+    public void servoPrepare(){servo1.setPosition(0.8);
+    }
 }
