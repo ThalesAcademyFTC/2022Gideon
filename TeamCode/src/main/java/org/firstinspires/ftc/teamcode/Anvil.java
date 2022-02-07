@@ -9,16 +9,17 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
+
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Anvil {
     //Define servo and motor variables
     public DcMotor motor1, motor2, motor3, motor4;
     public CRServo crservo1;
-    public TouchSensor touchSensor;
     public Servo servo1;
     public DcMotor carouselMotor, armMotor;
     public ColorSensor sensorColor;
+    public TouchSensor touchSensor;
     //Reference to mapped servo/motor controller
     private HardwareMap hwMap;
 
@@ -131,8 +132,8 @@ public class Anvil {
                 motor4 = hwMap.dcMotor.get("motor4");
                 armMotor = hwMap.dcMotor.get("armMotor");
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
-                touchSensor = hwMap.touchSensor.get("touchSensor");
                 servo1 = hwMap.servo.get("servo1");
+                touchSensor = hwMap.touchSensor.get("touchSensor");
                // sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
                 motor1.setDirection(DcMotor.Direction.REVERSE);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
@@ -324,11 +325,28 @@ public class Anvil {
             armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
+    public void moveArmFT(int ticks, double speed) {
+        this.rest();
+        for (DcMotor armMotor : front) {
+            armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            armMotor.setTargetPosition(ticks);
+            armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+        this.moveForward(speed);
+        while (ntarget(ticks, front[6])) {
+         continue;
+        }
+        for (DcMotor armMotor : forward) {
+            armMotor.setPower(6);
+            armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        }
+    }
 
     int ticksToBottom = 400;
     int ticksToMiddle = 700;
 
     public void armBottomRaise(){
+        this.rest();
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToBottom, armMotor)) {
             continue;
@@ -339,6 +357,7 @@ public class Anvil {
 
 
     public void armMiddleRaise(){
+        this.rest();
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToMiddle, armMotor)) {
             continue;
@@ -347,14 +366,18 @@ public class Anvil {
     }
 
     public void armReset(){
-        while(!touchSensor.isPressed()) {
-            armMotor.setPower(0.5);
+        this.rest();
+        armMotor.setPower(0.5);
+        while (ntarget(400, armMotor)) {
+            continue;
         }
+        armMotor.setPower(0);
     }
 
     int ticksToDuck = 3000;
 
     public void carouselMoveBlue(){
+        this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(0.25);
@@ -365,6 +388,7 @@ public class Anvil {
     }
 
     public void carouselMoveRed(){
+        this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(-0.25);

@@ -27,7 +27,7 @@ public class Auton extends LinearOpMode {
         //Any code that goes in this space is only run once, and after it is finished the program ends.
 
        // robot.moveForwardFT(1000, 0.5);
-
+        int t = 20;
         robot.moveLeftFT(2000);
         robot.moveRightFT(2000);
         if(gamepad2.left_trigger > 0.5){
@@ -35,6 +35,16 @@ public class Auton extends LinearOpMode {
         } else if(gamepad2.right_trigger > 0.5) {
             robot.servo1.setPosition(1);
         }
+
+        robot.moveForwardFT(t*8, 0.5);
+        sleep(500);
+        robot.moveLeftFT(t*67);
+        sleep(500);
+        robot.moveBackwardFT(50,0.5);
+        sleep(500);
+        robot.carouselMoveRed();
+        sleep(200);
+        robot.moveForwardFT(t*32, 0.5);
 
 
 
