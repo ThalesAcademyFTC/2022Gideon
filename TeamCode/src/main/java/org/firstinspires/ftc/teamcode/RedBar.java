@@ -61,6 +61,8 @@ public class RedBar extends LinearOpMode {
         robot.moveForwardFT(3*ticksCm,0.5);
 
 
+
+
         //turn towards freight
         /*
         robot.turnRightFT(650, 0.5);
