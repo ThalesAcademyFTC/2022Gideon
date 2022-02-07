@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="RedCorner", group="Template")
-//@Disabled
+@Disabled
 
 public class RedCornerAuton extends LinearOpMode {
     private Anvil robot;

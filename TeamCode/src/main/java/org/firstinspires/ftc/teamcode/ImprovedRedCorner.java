@@ -54,9 +54,9 @@ import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "Concept: TensorFlow Object Detection Webcam", group = "Concept")
+@TeleOp(name = "RedCorner", group = "Template")
 //@Disabled
-public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
+public class ImprovedRedCorner extends LinearOpMode {
   /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
    * the following 4 detectable objects
    *  0: Ball,
@@ -135,6 +135,13 @@ public class ConceptTensorFlowObjectDetectionWebcam extends LinearOpMode {
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         waitForStart();
+
+        //Auton goes herea
+
+
+
+
+
 
         if (opModeIsActive()) {
             while (opModeIsActive()) {
