@@ -325,28 +325,11 @@ public class Anvil {
             armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
-    public void moveArmFT(int ticks, double speed) {
-        this.rest();
-        for (DcMotor armMotor : front) {
-            armMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            armMotor.setTargetPosition(ticks);
-            armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-    }
-        this.moveForward(speed);
-        while (ntarget(ticks, front[6])) {
-         continue;
-        }
-        for (DcMotor armMotor : forward) {
-            armMotor.setPower(6);
-            armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        }
-    }
 
     int ticksToBottom = 400;
     int ticksToMiddle = 700;
 
     public void armBottomRaise(){
-        this.rest();
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToBottom, armMotor)) {
             continue;
@@ -357,7 +340,6 @@ public class Anvil {
 
 
     public void armMiddleRaise(){
-        this.rest();
         armMotor.setPower(-0.5);
         while (ntarget(-ticksToMiddle, armMotor)) {
             continue;
@@ -365,10 +347,15 @@ public class Anvil {
         armMotor.setPower(0);
     }
 
+    public void armTouch(){
+        if(!touchSensor.isPressed()){
+            armMotor.setPower(0.6);
+        } else armMotor.setPower(0);
+    }
+
     public void armReset(){
-        this.rest();
-        armMotor.setPower(0.5);
-        while (ntarget(400, armMotor)) {
+        armMotor.setPower(0.6);
+        while(!touchSensor.isPressed()){
             continue;
         }
         armMotor.setPower(0);
@@ -377,7 +364,6 @@ public class Anvil {
     int ticksToDuck = 3000;
 
     public void carouselMoveBlue(){
-        this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(0.25);
@@ -388,7 +374,6 @@ public class Anvil {
     }
 
     public void carouselMoveRed(){
-        this.rest();
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         carouselMotor.setPower(-0.25);
