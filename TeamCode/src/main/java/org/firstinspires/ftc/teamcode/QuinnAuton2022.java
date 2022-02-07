@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="QuinAuton2022", group="Template")
-//@Disabled
+@Disabled
 
 public class QuinnAuton2022 extends LinearOpMode {
     private Anvil robot;

@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @Autonomous(name="BlueCornerAuton", group="Template")
-@Disabled
+//Disabled
 
 public class BlueCornerAuton extends LinearOpMode {
     private Anvil robot;
@@ -24,24 +24,22 @@ public class BlueCornerAuton extends LinearOpMode {
         double s = 0.5;
         int t = 20;
 
-        robot.moveForwardFT(t*30, 0.5);
+        robot.moveForwardFT(t*8, 0.5);
         sleep(500);
-        robot.turnRightFT(5000, 0.25);
+        robot.moveRightFT(t*60);
         sleep(500);
-        robot.moveForwardFT(t*55, 0.5);
+        robot.turnLeftFT(1100,0.5);
         sleep(500);
-        robot.turnLeftFT(5000,0.25);
+        robot.moveBackwardFT(t*6,0.5);
         sleep(500);
-        robot.moveForwardFT(t*95, 0.5);
+        robot.moveLeftFT(t*30);
+        sleep(200);
+        robot.carouselMoveBlue();
+        sleep(200);
+        robot.moveRightFT(55*t);
         sleep(500);
-        robot.turnLeftFT(5000, 0.25);
-        sleep(500);
-        robot.moveForwardFT(t*20, 0.5);
-        sleep(500);
-        //place
-        sleep(500);
-        robot.moveBackwardFT(t*20, 0.5);
-        sleep(500);
+        robot.moveBackwardFT(t*6,0.5);
+
 
 
 
