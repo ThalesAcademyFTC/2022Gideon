@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="RedCorner", group="Template")
-@Disabled
+@Autonomous(name="RedCornerAuton", group="Template")
+//Disabled
 
 public class RedCornerAuton extends LinearOpMode {
     private Anvil robot;
@@ -19,60 +19,28 @@ public class RedCornerAuton extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         runtime.reset();
         telemetry.update();
+        waitForStart();
 
         double s = 0.5;
         int t = 20;
 
-        waitForStart();
-
-
-        robot.armBottomRaise();
-        sleep(200);
-        robot.servoPrepare();
-        sleep(200);
-        robot.armReset();
-        sleep(200);
-        robot.servoClose();
-        sleep(300);
-        robot.armBottomRaise();
-
-        robot.turnLeftFT(1345,0.5);
-
-        robot.turnRightFT(1345, 0.5);
-
         robot.moveForwardFT(t*8, 0.5);
         sleep(500);
-        robot.moveLeftFT(t*67);
+        robot.moveLeftFT(t*60);
         sleep(500);
-        robot.moveBackwardFT(50,0.5);
-        robot.carouselMoveRed();
+        robot.turnRightFT(1100,0.5);
+        sleep(500);
+        robot.moveBackwardFT(t*6,0.5);
+        sleep(500);
+        robot.moveRightFT(t*30);
         sleep(200);
+        robot.carouselMoveBlue();
+        sleep(200);
+        robot.moveLeftFT(55*t);
+        sleep(500);
+        robot.moveBackwardFT(t*6,0.5);
 
-        robot.moveForwardFT(t*78, 0.5);
-        sleep(500);
-        robot.moveForwardFT(t*35,0.5);
-        sleep(500);
-        robot.turnRightFT(1345,0.5);
-        sleep(500);
-        robot.moveForwardFT(t*100, 0.5);
-        sleep(500);
 
-        robot.armMiddleRaise();
-        sleep(500);
-
-        robot.servoPrepare();
-        sleep(500);
-        robot.moveBackwardFT(t*3,0.5);
-        sleep(500);
-
-        robot.armReset();
-
-        robot.moveRightFT(t*25);
-        sleep(500);
-        robot.moveForwardFT(t*30,0.5);
-        sleep(500);
-        robot.moveForwardFT(t*170,1);
-        sleep(500);
 
 
         while (opModeIsActive() && runtime.milliseconds() < 30000) {
