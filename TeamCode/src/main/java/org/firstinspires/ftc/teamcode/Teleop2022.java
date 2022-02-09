@@ -21,7 +21,7 @@ public class Teleop2022 extends OpMode {
 
         telemetry.addData("arm", robot.armMotor.getCurrentPosition());
         telemetry.addData("servo", robot.servo1.getPosition());
-        telemetry.addData("touch sensor", robot.touchSensor.isPressed());
+        telemetry.addData("touchSensor", robot.touchArm.getState());
         telemetry.update();
         //MOVEMENT
         //First, we want to make the robot rest if the gamepad is not being touched
@@ -37,9 +37,9 @@ public class Teleop2022 extends OpMode {
 
         //spin the carousel
         if (gamepad2.right_bumper) {
-            robot.carouselMotor.setPower(0.35);
+            robot.carouselMotor.setPower(0.55);
         } else if (gamepad2.left_bumper) {
-            robot.carouselMotor.setPower(-0.35);
+            robot.carouselMotor.setPower(-0.55);
         } else robot.carouselMotor.setPower(0);
 
         //Open claw while holding right trigger on gamepad2

@@ -28,9 +28,6 @@ public class AutonCodeTests extends LinearOpMode {
 
 
 
-        robot.moveArmFT(500,0.5);
-
-
 
 
         //Inside of the while statement below is any code that you want to run in loop during autonomous.

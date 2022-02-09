@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -54,7 +55,7 @@ import static org.firstinspires.ftc.teamcode.Anvil.Drivetrain.MECHANUM;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@TeleOp(name = "ImprovedRedCorner", group = "Template")
+@Autonomous(name = "ImprovedRedCorner", group = "Template")
 //@Disabled
 public class ImprovedRedCorner extends LinearOpMode {
   /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
@@ -110,31 +111,20 @@ public class ImprovedRedCorner extends LinearOpMode {
     public void runOpMode() {
         // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
         // first.
-        initVuforia();
-        initTfod();
+
 
         /**
          * Activate TensorFlow Object Detection before we wait for the start command.
          * Do it here so that the Camera Stream window will have the TensorFlow annotations visible.
          **/
-        if (tfod != null) {
-            tfod.activate();
-
-            // The TensorFlow software will scale the input images from the camera to a lower resolution.
-            // This can result in lower detection accuracy at longer distances (> 55cm or 22").
-            // If your target is at distance greater than 50 cm (20") you can adjust the magnification value
-            // to artificially zoom in to the center of image.  For best results, the "aspectRatio" argument
-            // should be set to the value of the images used to create the TensorFlow Object Detection model
-            // (typically 16/9).
-            tfod.setZoom(2.5, 16.0/9.0);
-        }
 
         /** Wait for the game to begin */
         robot = new Anvil(hardwareMap, MECHANUM, telemetry);
         runtime.reset();
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
-
+        double markerLocation = 0;
+        char level = 2;
         int t = 20;
         waitForStart();
 
@@ -143,6 +133,9 @@ public class ImprovedRedCorner extends LinearOpMode {
         sleep(200);
         robot.servoPrepare();
         sleep(200);
+        robot.moveRightFT(300);
+        robot.moveBackwardFT(50,0.5);
+        sleep(400);
         robot.armReset();
         sleep(200);
         robot.servoClose();
@@ -150,102 +143,88 @@ public class ImprovedRedCorner extends LinearOpMode {
         robot.armBottomRaise();
         sleep(200);
 
-        robot.turnLeftFT(1340,0.5);
-        sleep(200);
         //Camera stuff goes here
-        double duckLocation = 0;
-        robot.turnRightFT(1340, 0.5);
-        sleep(200);
-
-        robot.moveForwardFT(t*8, 0.5);
-        sleep(500);
-        robot.moveLeftFT(t*67);
-        sleep(500);
-        robot.moveBackwardFT(50,0.5);
-        robot.carouselMoveRed();
-        sleep(200);
-
-        robot.moveForwardFT(t*78, 0.5);
-        sleep(500);
-        robot.moveForwardFT(t*35,0.5);
-        sleep(500);
-        robot.turnRightFT(1345,0.5);
-        sleep(500);
-        robot.moveForwardFT(t*100, 0.5);
-        sleep(500);
-
-        robot.armMiddleRaise();
-        sleep(500);
-
-        robot.servoPrepare();
-        sleep(500);
-        robot.moveBackwardFT(t*3,0.5);
-        sleep(500);
-        robot.armReset();
-
-        robot.moveRightFT(t*25);
-        sleep(500);
-        robot.moveForwardFT(t*30,0.5);
-        sleep(500);
-        robot.moveForwardFT(t*170,1);
-        sleep(500);
-
-
-
-        if (opModeIsActive()) {
-            while (opModeIsActive()) {
-                if (tfod != null) {
-                    // getUpdatedRecognitions() will return null if no new information is available since
-                    // the last time that call was made.
-                    List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
-                    if (updatedRecognitions != null) {
-                      telemetry.addData("# Object Detected", updatedRecognitions.size());
-                      // step through the list of recognitions and display boundary info.
-                      int i = 0;
-                      for (Recognition recognition : updatedRecognitions) {
+        /*
+        int y = 0;
+        while(y<50) {
+            if (tfod != null) {
+                // getUpdatedRecognitions() will return null if no new information is available since
+                // the last time that call was made.
+                List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+                if (updatedRecognitions != null) {
+                    telemetry.addData("# Object Detected", updatedRecognitions.size());
+                    // step through the list of recognitions and display boundary info.
+                    int i = 0;
+                    for (Recognition recognition : updatedRecognitions) {
                         telemetry.addData(String.format("label (%d)", i), recognition.getLabel());
                         telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
                                 recognition.getLeft(), recognition.getTop());
                         telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
                                 recognition.getRight(), recognition.getBottom());
                         i++;
-                      }
-                      telemetry.update();
+                        if (recognition.getLabel() == "Marker") {
+                            markerLocation = recognition.getLeft();
+                        }
                     }
+                    telemetry.update();
                 }
             }
+            y++;
+        }
+        double marker3Threshold = 200;
+        double marker1Max = 400;
+
+        if (markerLocation >= marker3Threshold){
+            level = 2; //May need to swap
+        } else if (markerLocation <= marker1Max){ //Value may need to change
+            level = 1; //May need to swap
+        } else {
+            level = 2;
+        }
+        telemetry.addData("MarkerLocation", markerLocation);
+        telemetry.update();
+         */
+
+        robot.turnRightFT(1220, 0.5);
+        sleep(500);
+        robot.moveForwardFT(100, 0.5);
+        robot.moveLeftFT(t*79);
+        sleep(500);
+        robot.moveBackwardFT(40,0.25);
+        sleep(200);
+        robot.carouselMoveRed();
+        sleep(200);
+        robot.moveRightFT(90);
+        robot.turnRightFT(150, 0.5);
+        robot.moveForwardFT(t*100, 0.5);
+
+        robot.turnRightFT(1195,0.5);
+        sleep(500);
+        robot.moveForwardFT(t*56, 0.5);
+        sleep(500);
+
+        robot.armMiddleRaise();
+
+        robot.moveForwardFT(t*10, 0.5);
+        sleep(200);
+        robot.servoPrepare();
+        sleep(500);
+        robot.moveBackwardFT(t*10,0.5);
+        sleep(500);
+
+        robot.armReset();
+
+        robot.moveRightFT(t*85);
+        robot.armBottomRaise();
+        robot.moveForwardFT(t*220,1);
+        sleep(500);
+
+
+        if (opModeIsActive()) {
         }
     }
 
     /**
      * Initialize the Vuforia localization engine.
      */
-    private void initVuforia() {
-        /*
-         * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
-         */
-        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
-
-        parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
-
-        //  Instantiate the Vuforia engine
-        vuforia = ClassFactory.getInstance().createVuforia(parameters);
-
-        // Loading trackables is not necessary for the TensorFlow Object Detection engine.
-    }
-
-    /**
-     * Initialize the TensorFlow Object Detection engine.
-     */
-    private void initTfod() {
-        int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
-            "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-        TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
-       tfodParameters.minResultConfidence = 0.8f;
-       tfodParameters.isModelTensorFlow2 = true;
-       tfodParameters.inputSize = 320;
-       tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
-       tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABELS);
-    }
 }

@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -15,11 +16,11 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class Anvil {
     //Define servo and motor variables
     public DcMotor motor1, motor2, motor3, motor4;
+    DigitalChannel touchArm;
     public CRServo crservo1;
     public Servo servo1;
     public DcMotor carouselMotor, armMotor;
     public ColorSensor sensorColor;
-    public TouchSensor touchSensor;
     //Reference to mapped servo/motor controller
     private HardwareMap hwMap;
 
@@ -133,7 +134,8 @@ public class Anvil {
                 armMotor = hwMap.dcMotor.get("armMotor");
                 carouselMotor = hwMap.dcMotor.get("carouselMotor");
                 servo1 = hwMap.servo.get("servo1");
-                touchSensor = hwMap.touchSensor.get("touchSensor");
+                touchArm = hwMap.get(DigitalChannel.class, "touchSensor");
+                touchArm.setMode(DigitalChannel.Mode.INPUT);
                // sensorColor = hwMap.get(com.qualcomm.robotcore.hardware.ColorSensor.class, "sensorColorDistance");
                 motor1.setDirection(DcMotor.Direction.REVERSE);
                 motor2.setDirection(DcMotor.Direction.FORWARD);
@@ -227,6 +229,9 @@ public class Anvil {
         return sensorColor.alpha();
     }
 
+    public boolean isArmTouching(){
+        return !touchArm.getState();
+    }
     public boolean ntarget(int ticks, DcMotor x){ // This method just a way to simplify the math of the following functions.
         if (x.getCurrentPosition() > ticks + 25 || x.getCurrentPosition() < ticks - 25) return true;
         else return false;
@@ -326,8 +331,8 @@ public class Anvil {
         }
     }
 
-    int ticksToBottom = 400;
-    int ticksToMiddle = 700;
+    int ticksToBottom = 300;
+    int ticksToMiddle = 750;
 
     public void armBottomRaise(){
         armMotor.setPower(-0.5);
@@ -348,14 +353,14 @@ public class Anvil {
     }
 
     public void armTouch(){
-        if(!touchSensor.isPressed()){
+        if(!isArmTouching()){
             armMotor.setPower(0.6);
         } else armMotor.setPower(0);
     }
 
     public void armReset(){
         armMotor.setPower(0.6);
-        while(!touchSensor.isPressed()){
+        while(!isArmTouching()){
             continue;
         }
         armMotor.setPower(0);
@@ -366,7 +371,7 @@ public class Anvil {
     public void carouselMoveBlue(){
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(0.25);
+        carouselMotor.setPower(0.45);
         while (ntarget(ticksToDuck, carouselMotor)) {
             continue;
         }
@@ -376,7 +381,7 @@ public class Anvil {
     public void carouselMoveRed(){
         carouselMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         carouselMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        carouselMotor.setPower(-0.25);
+        carouselMotor.setPower(-0.45);
         while (ntarget(-ticksToDuck, carouselMotor)) {
             continue;
         }
@@ -384,13 +389,13 @@ public class Anvil {
     }
 
     public void servoClose(){
-        servo1.setPosition(0.6);
+        servo1.setPosition(0.5);
     }
 
     public void servoOpen(){
         servo1.setPosition(1);
     }
 
-    public void servoPrepare(){servo1.setPosition(0.8);
+    public void servoPrepare(){servo1.setPosition(0.7);
     }
 }
